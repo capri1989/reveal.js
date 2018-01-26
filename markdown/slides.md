@@ -69,7 +69,7 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 
 ### Current Status
 
-* Automatic discovery, deployment, configuration and life cycle management of Ceph clusters
+* Automatic discovery, deployment, configuration and life cycle 
 * Initial support for importing other Ceph clusters ( deployed via ceph-deploy)
 * RADOS Gateway deployment (for single site deployments)
 * CephFS MDS deployment and CephFS creation

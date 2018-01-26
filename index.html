@@ -52,5 +52,33 @@
 				]
 			});
 		</script>
+		<style type="text/css">
+		    #footer-left {
+		        position: absolute;
+		        bottom: 0%;
+		        left: 0.5%;
+		    }
+		</style>
+		
+		<!-- 2. Create hidden header/footer <div> -->
+		<div id="hidden" style="display:none;">
+		    <div id="header">
+			    <div id="footer-left"><img alt="suse logo black" width="5%" src="images/suse-black.png"></div>
+		    </div>
+		</div>
+		
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script type="text/javascript">
+		    // 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+		    var header = $('#header').html();
+		    if ( window.location.search.match( /print-pdf/gi ) ) {
+		        Reveal.addEventListener( 'ready', function( event ) {
+		            $('.slide-background').append(header);
+		        });
+		    }
+		    else {
+		        $('div.reveal').append(header);
+		   }
+		</script>	
 	</body>
 </html>
