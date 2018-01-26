@@ -162,5 +162,14 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 
 ---
 
-# Live Demo
+### Live Demo
 
+<a href="http://demo.openattic.org" target="_blank"><img src="images/openattic-login.png" /></a>
+
+---
+
+# Outlook
+
+* openATTIC goes upstream - Dashboard V2
+* Will become the default as soon as superset of functionality is covered
+* Initial work is up for review on github <a href="https://github.com/openattic/ceph" target="_blank">https://github.com/openattic/ceph</a>
