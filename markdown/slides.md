@@ -41,7 +41,7 @@
 
 #### Ceph Components 
 
-<img src="images/ceph-architecture.png" style="background:none; border:none; box-shadow:none;">
+<img src="images/ceph_stack.png" style="background:none; border:none; box-shadow:none;">
 
 ---
 
