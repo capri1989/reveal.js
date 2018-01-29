@@ -172,6 +172,6 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 
 --
 
-### Were is openATTIC?
+### Where is openATTIC?
 
 <img src="images/upstream-login.png" style="background:none; border:none; box-shadow:none;">
