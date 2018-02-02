@@ -108,6 +108,11 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 * Pool monitoring
 * Manage EC profiles
 * RBD management (view/create/delete/map)
+
+--
+
+### ... features in 2.0.x
+
 * RBD monitoring
 * View OSDs and their details
 * View cluster nodes & roles (via DeepSea)
@@ -123,6 +128,11 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 * Simplified installation (single package, less dependencies)
 * Nagios/Icinga & PNP4Nagios replaced by Prometheus & Grafana
 * Usability improvements
+
+--
+
+### ... changes in 3.x
+
 * Notification system
 * More robust error handling 
 * Web-based configuration
@@ -130,13 +140,18 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 
 --
 
-### openATTIC - New Ceph features in 3.x
+### openATTIC - New features in 3.x
 
 * New dashboards and performance graphs (Prometheus / Grafana)
 * Ceph Object Gateway management (RGW Admin Ops API)
 * iSCSI target management (lrbd)
 * NFS share management (NFS Ganesha)
 * Support Ceph Luminous features (e.g. pool compression)
+
+--
+
+### ... more new features in 3.x
+
 * Improved Pool and RBD management
 * Manage cluster-wide OSD flags
 * Node monitoring
@@ -159,12 +174,6 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 #### openATTIC Architecture
 
 <img src="images/openattic-architecture.png" style="background:none; border:none; box-shadow:none;">
-
----
-
-### Live Demo
-
-<a href="http://demo.openattic.org" target="_blank"><img src="images/openattic-login.png" /></a>
 
 ---
 
