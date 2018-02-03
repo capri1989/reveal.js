@@ -31,7 +31,7 @@
 
 ### Ceph Motivation Principles
 
-* Everything must scale / scale-out
+* Everything must scale / horizontally
 * No single point of failure (SPOF)
 * Commodity (off-the-shelf) hardware
 * Self-manage (whenever possible)
@@ -91,7 +91,7 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 
 ### openATTIC Goals
 
-* Open Source Ceph management & monitoring GUI tool
+* Open Source Ceph management & monitoring GUI
 
 * A tool that admins actually want to use
 
@@ -178,6 +178,12 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 ---
 
 # Outlook
+
+--
+
+### This is openATTIC!
+
+<img src="images/openattic-login.png" style="background:none; border:none; box-shadow:none;">
 
 --
 
