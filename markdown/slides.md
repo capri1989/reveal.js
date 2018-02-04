@@ -2,7 +2,7 @@
 
 <hr>
 <p>Kai Wagner | <a href="mailto:kwagner@suse.com">kwagner@suse.com</a></p>
-<p>FOSDEM 2018</p>
+<p>Ceph Day Germany 2018</p>
 
 ---
 
@@ -10,8 +10,8 @@
 
 * Ceph
 * Salt and DeepSea
-* openATTIC
 * Prometheus and Grafana
+* openATTIC
 
 ---
 
@@ -85,6 +85,19 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 
 ---
 
+# Prometheus and Grafana
+
+--
+
+### Prometheus and Grafana
+
+* Prometheus collects and stores time series data
+* Grafana makes it fit for human consumption
+* Usually just exposed via openATTIC dashboard
+* Standalone dashboard still accessible
+
+---
+
 # openATTIC
 
 --
@@ -101,73 +114,24 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 
 --
 
-### openATTIC - Ceph features in 2.0.x
+### openATTIC Features
 
-* Ceph Cluster Status Dashboard (Performance Graphs, Health Status)
-* Pool management (view/create/delete) 
-* Pool monitoring
-* Manage EC profiles
-* RBD management (view/create/delete/map)
-
---
-
-### ... features in 2.0.x
-
-* RBD monitoring
-* View OSDs and their details
-* View cluster nodes & roles (via DeepSea)
-* CRUSH map “editor”
-* Support for managing multiple Ceph clusters
-
---
-
-### openATTIC - Notable changes in 3.x
-
-* Major code refactoring – Ceph-only focus
 * Stateless – no information about Ceph is stored locally
-* Simplified installation (single package, less dependencies)
-* Nagios/Icinga & PNP4Nagios replaced by Prometheus & Grafana
-* Usability improvements
+* Dashboard and performance graphs (Prometheus / Grafana)
+* Basic OSD Management - Manage cluster-wide osd flags
+* Pool and RBD management (create, delete, edit)
+* Node view and monitoring
+* iSCSI target management (lrbd)
 
 --
 
-### ... changes in 3.x
+### ...more features
 
-* Notification system
-* More robust error handling 
+* NFS share management (NFS Ganesha)
+* Ceph Object Gateway management (RGW Admin Ops API)
+* Support Ceph Luminous features (e.g. pool compression)
 * Web-based configuration
 * Detailed feedback to the user on how to resolve configuration issues
-
---
-
-### openATTIC - New features in 3.x
-
-* New dashboards and performance graphs (Prometheus / Grafana)
-* Ceph Object Gateway management (RGW Admin Ops API)
-* iSCSI target management (lrbd)
-* NFS share management (NFS Ganesha)
-* Support Ceph Luminous features (e.g. pool compression)
-
---
-
-### ... more new features in 3.x
-
-* Improved Pool and RBD management
-* Manage cluster-wide OSD flags
-* Node monitoring
-
----
-
-# Prometheus and Grafana
-
---
-
-### Prometheus and Grafana
-
-* Prometheus collects and stores time series data
-* Grafana makes it fit for human consumption
-* Usually just exposed via openATTIC dashboard
-* Standalone dashboard still accessible
 
 ---
 
@@ -187,6 +151,6 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 
 --
 
-### Where is openATTIC?
+### openATTIC goes upstream!
 
 <img src="images/upstream-login.png" style="background:none; border:none; box-shadow:none;">
