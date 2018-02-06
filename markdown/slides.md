@@ -6,42 +6,58 @@
 
 ---
 
-### The Components of openATTIC
+### Content for today
 
-* Ceph
+* openATTIC retrospective
 * Salt and DeepSea
 * Prometheus and Grafana
-* openATTIC
+* openATTIC 3.x
+* Outlook
+* Live Demo
 
 ---
 
-# Ceph
+### openATTIC retrospective
 
 --
 
-### Ceph Overview
-
-* A distributed storage system
-
-* Object, block, and file storage in one unified system
-
-* Designed for performance, reliability and scalability
+### First commit Jan. 2011
 
 --
 
-### Ceph Motivation Principles
+### Started as local storage management Web-UI
 
-* Everything must scale / horizontally
-* No single point of failure (SPOF)
-* Commodity (off-the-shelf) hardware
-* Self-manage (whenever possible)
-* Open source (LGPL)
+<img src="images/openattic-1.x.png" style="background:none; border:none; box-shadow:none;">
 
 --
 
-#### Ceph Components 
+##### Switched from XML-RPC/ExtJS to REST/Angularjs
 
-<img src="images/ceph_stack.png" style="background:none; border:none; box-shadow:none;">
+<img src="images/openattic-newv2.png" style="background:none; border:none; box-shadow:none;">
+
+--
+
+##### First Ceph management commit in Feb. 2014
+
+<img src="images/openattic-new-feature.png" style="background:none; border:none; box-shadow:none;">
+
+--
+
+### Crush Map Editor
+
+<img src="images/openattic-crush-map.png" style="background:none; border:none; box-shadow:none;">
+
+--
+
+### Inital Ceph Monitoring
+
+<img src="images/openattic-v2-monitoring.png" style="background:none; border:none; box-shadow:none;">
+
+--
+
+##### Since 2017 we're focusing on Ceph only
+
+<img src="images/openattic-v3-dashboard.png" style="background:none; border:none; box-shadow:none;">
 
 ---
 
@@ -121,13 +137,13 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 * Basic OSD Management - Manage cluster-wide osd flags
 * Pool and RBD management (create, delete, edit)
 * Node view and monitoring
-* iSCSI target management (lrbd)
+* NFS share management (NFS Ganesha)
 
 --
 
 ### ...more features
 
-* NFS share management (NFS Ganesha)
+* iSCSI target management (lrbd)
 * Ceph Object Gateway management (RGW Admin Ops API)
 * Support Ceph Luminous features (e.g. pool compression)
 * Web-based configuration
