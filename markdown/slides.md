@@ -1,8 +1,9 @@
 # Ceph management with openATTIC
 
 <hr>
+<p>Sebastian Wagner | <a href="mailto:swagner@suse.com">swagner@suse.com</a></p>
 <p>Kai Wagner | <a href="mailto:kwagner@suse.com">kwagner@suse.com</a></p>
-<p>Ceph Day Germany 2018</p>
+<p>Chemnitzer Linuxtage 2018</p>
 
 ---
 
