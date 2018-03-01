@@ -9,7 +9,7 @@
 
 ### Content for today
 
-* openATTIC retrospective
+* Ceph
 * Salt and DeepSea
 * Prometheus and Grafana
 * openATTIC 3.x
@@ -18,47 +18,34 @@
 
 ---
 
-### openATTIC retrospective
+# Ceph
 
 --
 
-### First commit Jan. 2011
+### Ceph Overview
+
+* A distributed storage system
+
+* Object, block, and file storage in one unified system
+
+* Designed for performance, reliability and scalability
 
 --
 
-### Started as local storage management Web-UI
+### Ceph Motivation Principles
 
-<img src="images/openattic-1.x.png" style="background:none; border:none; box-shadow:none;">
-
---
-
-##### Switched from XML-RPC/ExtJS to REST/Angularjs
-
-<img src="images/openattic-newv2.png" style="background:none; border:none; box-shadow:none;">
+* Everything must scale / horizontally
+* No single point of failure (SPOF)
+* Commodity (off-the-shelf) hardware
+* Self-manage (whenever possible)
+* Open source (LGPL)
 
 --
 
-##### First Ceph management commit in Feb. 2014
+#### Ceph Components 
 
-<img src="images/openattic-new-feature.png" style="background:none; border:none; box-shadow:none;">
+<img src="images/ceph_stack.png" style="background:none; border:none; box-shadow:none;">
 
---
-
-### Crush Map Editor
-
-<img src="images/openattic-crush-map.png" style="background:none; border:none; box-shadow:none;">
-
---
-
-### Inital Ceph Monitoring
-
-<img src="images/openattic-v2-monitoring.png" style="background:none; border:none; box-shadow:none;">
-
---
-
-##### Since 2017 we're focusing on Ceph only
-
-<img src="images/openattic-v3-dashboard.png" style="background:none; border:none; box-shadow:none;">
 
 ---
 
