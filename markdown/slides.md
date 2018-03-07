@@ -122,7 +122,7 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 
 * Stateless – no information about Ceph is stored locally
 * Dashboard and performance graphs (Prometheus / Grafana)
-* Basic OSD Management - Manage cluster-wide osd flags
+* Basic OSD Management - Manage cluster-wide OSD flags
 * Pool and RBD management (create, delete, edit)
 * Node view and monitoring
 * NFS share management (NFS Ganesha)
@@ -143,18 +143,4 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 
 <img src="images/openattic-architecture.png" style="background:none; border:none; box-shadow:none;">
 
----
 
-# Outlook
-
---
-
-### This is openATTIC!
-
-<img src="images/openattic-login.png" style="background:none; border:none; box-shadow:none;">
-
---
-
-### openATTIC goes upstream!
-
-<img src="images/upstream-login.png" style="background:none; border:none; box-shadow:none;">
