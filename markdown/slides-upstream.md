@@ -16,7 +16,8 @@
 
 ## Idea
 
-* openATTIC goes upstream - Dashboard V2
+* A built-in, web-based management/monitoring UI for Ceph
+* Inspired by and derived from openATTIC: Dashboard V2
 * Will be the default management UI of Ceph
 
 --

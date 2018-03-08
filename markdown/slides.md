@@ -74,7 +74,7 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 ### Current Status
 
 * Automatic discovery, deployment, configuration and life cycle 
-* Initial support for importing other Ceph clusters ( deployed via ceph-deploy)
+* Initial support for importing other Ceph clusters (deployed via ceph-deploy)
 * RADOS Gateway deployment (for single site deployments)
 * CephFS MDS deployment and CephFS creation
 * Sharing CephFS or S3 buckets via NFS Ganesha
@@ -120,9 +120,9 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 
 ### openATTIC Features
 
-* Stateless – no information about Ceph is stored locally
+* Stateless - no information about Ceph is stored locally
 * Dashboard and performance graphs (Prometheus / Grafana)
-* Basic OSD Management - Manage cluster-wide OSD flags
+* Basic OSD Management - manage cluster-wide OSD flags
 * Pool and RBD management (create, delete, edit)
 * Node view and monitoring
 * NFS share management (NFS Ganesha)
