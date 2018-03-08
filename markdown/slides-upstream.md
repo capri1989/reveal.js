@@ -25,7 +25,7 @@
 ## Status
 
 * First milestone: get on-par with existing dashboard
-* Dashboard V2 has been merged in to Ceph!
+* Dashboard V2 has been merged into Ceph!
 * Next milestone: get on-par with openATTIC 3.x
 
 --
