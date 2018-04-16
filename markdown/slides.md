@@ -13,7 +13,6 @@
   * openATTIC
   * Dashboard v1
 * Dashboard v2
-* Outlook
 * Live Demo
 
 ---
