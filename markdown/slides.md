@@ -175,7 +175,7 @@ Nov. 2016: openATTIC and team acquired by SUSE
 ### New UI improvements
 
 * A usage bar component
-* Tool tips
+* Tooltips
 * Asynchronous task manager
 * Erasure code profile management
 
