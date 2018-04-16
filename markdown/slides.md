@@ -110,16 +110,76 @@
 * Perf counters
 * Config settings browser
 
+--
+
+### Dashboard v2 Limitations
+
+* "read-only" - no management funtionality
+* No built-in authentication system
+* Limited funtionality of Rivet.JS
+
 ---
 
-# Dashboard v2
+# Dashboard v2 retrospective 
 
----
+--
 
-# Outlook
+* Jan. 2018: Initial discussions with Sage and John
+  * POC of Ceph Mgr Dashboard converted to Angular
+* Feb. 22nd 2018: Dashboard v2 development branch created
+* Mar. 06th 2018: Milestone 1 merged - feature partiy with Dashboard v1
+
+--
+
+### Submitted over 80 pull requests
+
+--
+
+### More than 60 pull requests have been merged already
+
+--
+
+### Lots of groundwork/foundation
+
+--
+
+### Dashboard v2 overview
+
+* Modular Python backend (CherryPy), RESTful API
+* WebUI (Angular 5), inspired by / derived from openATTIC UI
+* Basic username/password authentication
+* All features from Dashboard v1 from current ``master`` branch
+
+--
+
+### New backend improvements
+
+* Asynchronous tasks management
+* Browseable REST API
+* Creating Pool via the REST API
+* Creating RBDs via the REST API
+
+--
+
+### New UI improvements
+
+* A usage bar component
+* Tool tips
+* Asynchronous task manager
+* Erasure code profile management
+
+--
+
+### Upcoming/WIP
+
+* Block device (RBD) management
+* RGW user and bucket management
+* Ceph pool management
+* Configuration settiongs editor
+* Localization
 
 ---
 
 ### Live Demo
 
-<a href="http://demo.openattic.org" target="_blank"><img src="images/openattic-login.png" /></a>
+<a href="http://dilbert.com/strip/2000-12-30" target="_blank"><img src="images/openattic-login.png" /></a>
