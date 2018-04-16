@@ -59,7 +59,7 @@
 
 --
 
-* Feb.2016: Collaboration with SUSE started
+* Feb. 2016: Collaboration with SUSE started
 
 --
 
