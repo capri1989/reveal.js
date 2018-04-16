@@ -1,146 +1,125 @@
-# Ceph management with openATTIC
+# Dashboard v2
 
 <hr>
-<p>Sebastian Wagner | <a href="mailto:swagner@suse.com">swagner@suse.com</a></p>
 <p>Kai Wagner | <a href="mailto:kwagner@suse.com">kwagner@suse.com</a></p>
-<p>Chemnitzer Linuxtage 2018</p>
+<p>Ceph Day London 2018</p>
 
 ---
 
 ### Content for today
 
-* Ceph
-* Salt and DeepSea
-* Prometheus and Grafana
-* openATTIC 3.x
+* Indroduction
+* History
+  * openATTIC
+  * Dashboard v1
+* Dashboard v2
 * Outlook
 * Live Demo
 
 ---
 
-# Ceph
+# Introduction
 
 --
 
-### Ceph Overview
+### Who am I?
 
-* A distributed storage system
-
-* Object, block, and file storage in one unified system
-
-* Designed for performance, reliability and scalability
-
---
-
-### Ceph Motivation Principles
-
-* Everything must scale / horizontally
-* No single point of failure (SPOF)
-* Commodity (off-the-shelf) hardware
-* Self-manage (whenever possible)
-* Open source (LGPL)
-
---
-
-#### Ceph Components 
-
-<img src="images/ceph_stack.png" style="background:none; border:none; box-shadow:none;">
-
+```
+[capri] (capri@fulda.de): Kai Wagner
+[capri] #ceph #ceph-dashboard #opensuse #suse #storage 
+[capri] capri.suse.de :SUSE Employee 
+[capri] is using modes +v
+[capri] is using a secure connection
+[capri] idle 256189:02:41, signon: Thu Jan 26th,1989 23:26
+[capri] End of WHOIS list.
+```
 
 ---
 
-# Salt
-
---
-
-### Why did we choose Salt?
-
-* Massive scalability and resilient environments
-* Parallel execution
-* Speed
-* Easy to get started 
-* Active and still growing community
+# History
 
 ---
 
-# DeepSea
-
---
- 
-DeepSea is a collection of Salt files for deploying, managing and automating all aspects of a Ceph cluster
+### openATTIC
 
 --
 
-### Current Status
-
-* Automatic discovery, deployment, configuration and life cycle 
-* Initial support for importing other Ceph clusters (deployed via ceph-deploy)
-* RADOS Gateway deployment (for single site deployments)
-* CephFS MDS deployment and CephFS creation
-* Sharing CephFS or S3 buckets via NFS Ganesha
+* 2011: openATTIC was founded
 
 --
 
-### ... there is more
+<img src="images/openattic-1.x.png" style="background:none; border:none; box-shadow:none;">
 
-* iSCSI target management via lrbd
-* Deployment and configuration of Prometheus and Grafana 
-* Deployment and configuration of openATTIC 
+--
+
+* 2014: Added initial Ceph support
+
+--
+
+<img src="images/openattic-crush-map.png" style="background:none; border:none; box-shadow:none;">
+
+--
+
+* Feb.2016: Collaboration with SUSE started
+
+--
+
+<img src="images/openattic-v2-monitoring.png" style="background:none; border:none; box-shadow:none;">
+
+--
+
+* Nov. 2016: openATTIC and team acquired by SUSE
+
+--
+
+<img src="images/openattic-team-2016.jpg" style="background:none; border:none; box-shadow:none;">
+
+--
+
+* 2017: openattic 3.x focuses on Ceph only
+
+--
+
+<img src="images/openattic-v3-dashboard.png" style="background:none; border:none; box-shadow:none;">
 
 ---
 
-# Prometheus and Grafana
+### Dashboard V1
 
 --
 
-### Prometheus and Grafana
+### Initial implementation
 
-* Prometheus collects and stores time series data
-* Grafana makes it fit for human consumption
-* Usually just exposed via openATTIC dashboard
-* Standalone dashboard still accessible
+* Added in Ceph Luminous
+* Ceph health status, logs, performance metrics
+* List of nodes, OSDs
+* RBD images, mirroring status, iSCSI daemon status
+* Python Backend (CherryPy)
+* Javascript UI (Rivets.JS)
+
+--
+
+<img src="images/dashboardv1_frontpage.png" style="background:none; border:none; box-shadow:none;">
+
+--
+
+### Added after Luminous
+  
+* RGW details
+* MON list
+* Perf counters
+* Config settings browser
 
 ---
 
-# openATTIC
-
---
-
-### openATTIC Goals
-
-* Open Source Ceph management & monitoring GUI
-
-* A tool that admins actually want to use
-
-* That scales without becoming overwhelming
-
-* Still should allow changes to be made elsewhere, without becoming inconsistent
-
---
-
-### openATTIC Features
-
-* Stateless - no information about Ceph is stored locally
-* Dashboard and performance graphs (Prometheus / Grafana)
-* Basic OSD Management - manage cluster-wide OSD flags
-* Pool and RBD management (create, delete, edit)
-* Node view and monitoring
-* NFS share management (NFS Ganesha)
-
---
-
-### ...more features
-
-* iSCSI target management (lrbd)
-* Ceph Object Gateway management (RGW Admin Ops API)
-* Support Ceph Luminous features (e.g. pool compression)
-* Web-based configuration
-* Detailed feedback to the user on how to resolve configuration issues
+# Dashboard v2
 
 ---
 
-#### openATTIC Architecture
+# Outlook
 
-<img src="images/openattic-architecture.png" style="background:none; border:none; box-shadow:none;">
+---
 
+### Live Demo
 
+<a href="http://demo.openattic.org" target="_blank"><img src="images/openattic-login.png" /></a>

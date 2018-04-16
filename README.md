@@ -1,3 +1,3 @@
-This is my presentation for the CLT 2018 https://chemnitzer.linux-tage.de/2018/en/programm/beitrag/307
+This is my presentation for the Ceph Day in London 2018 https://ceph.com/cephdays/london/
 
-* Ceph Management and Monitoring with openATTIC
+* Ceph Dashboard v2
