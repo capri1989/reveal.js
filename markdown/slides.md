@@ -43,7 +43,7 @@
 
 --
 
-* 2011: openATTIC was founded
+2011: openATTIC was founded
 
 --
 
@@ -51,7 +51,7 @@
 
 --
 
-* 2014: Added initial Ceph support
+2014: Added initial Ceph support
 
 --
 
@@ -59,7 +59,7 @@
 
 --
 
-* Feb. 2016: Collaboration with SUSE started
+Feb. 2016: Collaboration with SUSE started
 
 --
 
@@ -67,7 +67,7 @@
 
 --
 
-* Nov. 2016: openATTIC and team acquired by SUSE
+Nov. 2016: openATTIC and team acquired by SUSE
 
 --
 
@@ -75,7 +75,7 @@
 
 --
 
-* 2017: openattic 3.x focuses on Ceph only
+2017: openattic 3.x focuses on Ceph only
 
 --
 
@@ -113,7 +113,7 @@
 
 ### Dashboard v2 Limitations
 
-* "read-only" - no management funtionality
+* "read-only" - no management functionality
 * No built-in authentication system
 * Limited funtionality of Rivet.JS
 
@@ -126,7 +126,19 @@
 * Jan. 2018: Initial discussions with Sage and John
   * POC of Ceph Mgr Dashboard converted to Angular
 * Feb. 22nd 2018: Dashboard v2 development branch created
-* Mar. 06th 2018: Milestone 1 merged - feature partiy with Dashboard v1
+* Mar. 06th 2018: Milestone 1 merged - feature parity with Dashboard v1
+
+--
+
+### Submitted over 150 pull requests
+
+--
+
+### Merged 122 pull requests
+
+--
+
+### What happened since the Milestone merge?
 
 --
 
