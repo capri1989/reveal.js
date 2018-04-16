@@ -8,7 +8,7 @@
 
 ### Content for today
 
-* Indroduction
+* Introduction
 * History
   * openATTIC
   * Dashboard v1
