@@ -111,7 +111,7 @@ Nov. 2016: openATTIC and team acquired by SUSE
 
 --
 
-### Dashboard v2 Limitations
+### Dashboard v1 Limitations
 
 * "read-only" - no management functionality
 * No built-in authentication system
