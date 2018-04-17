@@ -75,7 +75,7 @@ Nov. 2016: openATTIC and team acquired by SUSE
 
 --
 
-2017: openattic 3.x focuses on Ceph only
+2017: openATTIC 3.x focuses on Ceph only
 
 --
 
@@ -115,7 +115,7 @@ Nov. 2016: openATTIC and team acquired by SUSE
 
 * "read-only" - no management functionality
 * No built-in authentication system
-* Limited funtionality of Rivet.JS
+* Limited functionality of Rivet.JS
 
 ---
 
@@ -186,7 +186,7 @@ Nov. 2016: openATTIC and team acquired by SUSE
 * Block device (RBD) management
 * RGW user and bucket management
 * Ceph pool management
-* Configuration settiongs editor
+* Configuration settings editor
 * Localization
 
 ---
