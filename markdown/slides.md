@@ -1,17 +1,16 @@
-# Dashboard v2
+# Ceph Management and Monitoring
 
 <hr>
 <p>Kai Wagner | <a href="mailto:kwagner@suse.com">kwagner@suse.com</a></p>
-<p>Ceph Day London 2018</p>
+<p>TEQnation Utrecht 2018</p>
 
 ---
 
 ### Content for today
 
 * Introduction
-* History
-  * openATTIC
-  * Dashboard v1
+* openATTIC
+* Dashboard v1
 * Dashboard v2
 * Live Demo
 
@@ -29,17 +28,13 @@
 [capri] capri.suse.de :SUSE Employee 
 [capri] is using modes +v
 [capri] is using a secure connection
-[capri] idle 256189:02:41, signon: Thu Jan 26th,1989 23:26
+[capri] idle 256335:02:41, signon: Thu Jan 26th,1989 23:26
 [capri] End of WHOIS list.
 ```
 
 ---
 
-# History
-
----
-
-### openATTIC
+# openATTIC
 
 --
 
@@ -80,6 +75,45 @@ Nov. 2016: openATTIC and team acquired by SUSE
 --
 
 <img src="images/openattic-v3-dashboard.png" style="background:none; border:none; box-shadow:none;">
+
+--
+
+### openATTIC Goals
+
+* Open Source Ceph management & monitoring GUI
+
+* A tool that admins actually want to use
+
+* That scales without becoming overwhelming
+
+* Still should allow changes to be made elsewhere, without becoming inconsistent
+
+--
+
+### openATTIC Features
+
+* Stateless - no information about Ceph is stored locally
+* Dashboard and performance graphs (Prometheus / Grafana)
+* Basic OSD Management - manage cluster-wide OSD flags
+* Pool and RBD management (create, delete, edit, snapshots)
+* Node view and monitoring
+* NFS share management (NFS Ganesha)
+
+--
+
+### ...more features
+
+* iSCSI target management (lrbd)
+* Ceph Object Gateway management (RGW Admin Ops API)
+* Support Ceph Luminous features (e.g. pool compression)
+* Web-based configuration
+* Detailed feedback to the user on how to resolve configuration issues
+
+--
+
+#### openATTIC Architecture
+
+<img src="images/openattic-architecture.png" style="background:none; border:none; box-shadow:none;">
 
 ---
 

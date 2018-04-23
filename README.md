@@ -1,3 +1,3 @@
-This is my presentation for the Ceph Day in London 2018 https://ceph.com/cephdays/london/
+This is my presentation for the TEQnation in Utrecht NL 2018 https://teqnation.nl/sessions/ceph-the-future-of-storage/
 
-* Ceph Dashboard v2
+* Ceph Management and monitoring
