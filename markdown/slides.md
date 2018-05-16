@@ -172,6 +172,7 @@ Nov. 2016: openATTIC and team acquired by SUSE
 * Block device (RBD) management
 * RGW bucket and user management
 * Ceph pool management
+
 --
 
 ### New UI improvements
