@@ -158,6 +158,10 @@
 
 --
 
+Ceph trades everything off for consistency
+
+--
+
 #### Ceph Architecture
 
 <img src="images/ceph_stack.png" style="background:none; border:none; box-shadow:none;">
