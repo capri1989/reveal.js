@@ -146,7 +146,87 @@
 
 --
 
-#### Ceph Components 
+#### Ceph Architecture
 
 <img src="images/ceph_stack.png" style="background:none; border:none; box-shadow:none;">
+
+--
+
+### Ceph core compontens
+
+--
+
+### MON
+
+* Tracks & Monitor the health of the cluster
+
+* Maintains a master copy of the cluster map
+
+* Consensus for distributed decision making
+
+* MONs DO NOT serve data to clients
+
+--
+
+### OSD
+
+* Object Storage Deamon
+
+* Store the actual data as objects on physical disks
+
+* Serve stored data to clients
+
+* Replication mechanism included
+
+* Minimum of 3 OSDs recommended for data replication
+
+--
+
+### Pools
+
+* Logical container for storage objects
+
+* Replicated or erasure coding
+
+* Dedicated CRUSH rules
+
+--
+
+### Placementgroups
+
+* Helper to balance the data across the OSDs
+
+* One PG typically spans several OSDs
+
+* One OSD typically servers many PGs
+
+* Recommended ~150 PGs per OSD
+
+--
+
+### CRUSH map 
+
+* Controlled Replication Under Scalable Hashing
+
+* MONs maintain the CRUSH map
+
+* Topology of any environment could be build (row,rack,host,az...)
+
+--
+
+### Small cluster
+
+<img src="images/cluster.png" style="background:none; border:none; box-shadow:none;">
+
+--
+
+### Write data
+
+<img src="images/cluster-write.png" style="background:none; border:none; box-shadow:none;">
+
+--
+
+### Read data
+
+<img src="images/cluster-read.png" style="background:none; border:none; box-shadow:none;">
 
