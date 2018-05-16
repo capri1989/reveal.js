@@ -204,13 +204,13 @@
 
 --
 
-### Placementgroups
+### Placement groups
 
 * Helper to balance the data across the OSDs
 
 * One PG typically spans several OSDs
 
-* One OSD typically servers many PGs
+* One OSD typically serves many PGs
 
 * Recommended ~150 PGs per OSD
 
