@@ -169,7 +169,6 @@ Nov. 2016: openATTIC and team acquired by SUSE
 
 * Asynchronous tasks management
 * Browseable REST API
-* Pool management
 * Block device (RBD) management
 * RGW bucket and user management
 * Ceph pool management
