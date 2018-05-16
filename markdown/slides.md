@@ -9,7 +9,7 @@
 ### Content for today
 
 * Introduction
-* Different types of storage
+* Isn't a single NAS system enough?
 * What's Ceph?
 
 ---
@@ -30,9 +30,21 @@
 [capri] End of WHOIS list.
 ```
 
+--
+
+<img src="images/listen-to-me.jpg" style="background:none; border:none; box-shadow:none;">
+
+--
+
+<img src="images/its-not-a-joke.jpg" style="width: 60%; height: 60%; background:none; border:none; box-shadow:none;">
+
+--
+
+### So let's start!
+
 ---
 
-# Different types of storage
+# Isn't a single NAS system enough?
 
 --
 
@@ -66,22 +78,6 @@
 
 --
 
-### The two different ways of scaling
-
---
-
-### Scale-Up
-
-<img src="images/scale-up.jpg" style="background:none; border:none; box-shadow:none;">
-
---
-
-### Scale-out
-
-<img src="images/scale-out.jpg" style="background:none; border:none; box-shadow:none;">
-
---
-
 ### There's more!
 
 --
@@ -95,6 +91,22 @@
 ### Way to many options
 
 <img src="images/lollipops.jpg" style="background:none; border:none; box-shadow:none;">
+
+--
+
+### The two different ways of scaling
+
+--
+
+### Scale-Up
+
+<img src="images/scale-up.jpg" style="background:none; border:none; box-shadow:none;">
+
+--
+
+### Scale-out
+
+<img src="images/scale-out.jpg" style="background:none; border:none; box-shadow:none;">
 
 --
 
@@ -229,4 +241,8 @@
 ### Read data
 
 <img src="images/cluster-read.png" style="background:none; border:none; box-shadow:none;">
+
+---
+
+<img src="images/questions.jpg" style="background:none; border:none; box-shadow:none;">
 
