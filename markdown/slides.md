@@ -2,7 +2,8 @@
 
 <hr>
 <p>Kai Wagner | <a href="mailto:kwagner@suse.com">kwagner@suse.com</a></p>
-<p>Ceph Day London 2018</p>
+<p>Laura Paduano | <a href="mailto:lpaduano@suse.com">lpaduano@suse.com</a></p>
+<p>openSUSE Conference 2018</p>
 
 ---
 
@@ -142,11 +143,11 @@ Nov. 2016: openATTIC and team acquired by SUSE
 
 --
 
-### Submitted over 80 pull requests
+### Submitted over 170 pull requests
 
 --
 
-### More than 60 pull requests have been merged already
+### More than 140 pull requests have been merged already
 
 --
 
@@ -160,6 +161,7 @@ Nov. 2016: openATTIC and team acquired by SUSE
 * WebUI (Angular 5), inspired by / derived from openATTIC UI
 * Basic username/password authentication
 * All features from Dashboard v1 from current ``master`` branch
+  * Additional management features
 
 --
 
@@ -167,9 +169,10 @@ Nov. 2016: openATTIC and team acquired by SUSE
 
 * Asynchronous tasks management
 * Browseable REST API
-* Creating Pool via the REST API
-* Creating RBDs via the REST API
-
+* Pool management
+* Block device (RBD) management
+* RGW bucket and user management
+* Ceph pool management
 --
 
 ### New UI improvements
@@ -178,16 +181,20 @@ Nov. 2016: openATTIC and team acquired by SUSE
 * Tooltips
 * Asynchronous task manager
 * Erasure code profile management
+* RGW user and bucket management
+* Block device (RBD) management
+* Ceph pool management
 
 --
 
 ### Upcoming/WIP
 
-* Block device (RBD) management
-* RGW user and bucket management
-* Ceph pool management
+* Grafana proxy (PR opened)
+* Further Ceph pool management
+* Clusterwide Ceph OSD management
 * Configuration settings editor
 * Localization
+* User permissions (based on pages)
 
 ---
 
