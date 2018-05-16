@@ -1,3 +1,3 @@
-This is my presentation for the Ceph Day in London 2018 https://ceph.com/cephdays/london/
+This is our presentation for the openSUSE Conference 2018 https://events.opensuse.org/conference/oSC18
 
 * Ceph Dashboard v2
