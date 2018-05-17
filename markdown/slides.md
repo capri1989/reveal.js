@@ -22,16 +22,22 @@
 
 --
 
-### Who am I?
+### Who are we?
 
 ```
 [capri] (capri@fulda.de): Kai Wagner
 [capri] #ceph #ceph-dashboard #opensuse #suse #storage 
 [capri] capri.suse.de :SUSE Employee 
-[capri] is using modes +v
-[capri] is using a secure connection
 [capri] idle 256189:02:41, signon: Thu Jan 26th,1989 23:26
 [capri] End of WHOIS list.
+
+
+[laura] (laura@fulda.de): Laura Paduano
+[laura] #ceph #ceph-dashboard #opensuse #suse #storage 
+[laura] laura.suse.de :SUSE Employee 
+[laura] idle 235230:02:41, signon: Thu Jul 25th,1991 06:38
+[laura] End of WHOIS list.
+
 ```
 
 ---
