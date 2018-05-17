@@ -1,4 +1,4 @@
-# Dashboard v2
+# Ceph Manager Dashboard
 
 <hr>
 <p>Kai Wagner | <a href="mailto:kwagner@suse.com">kwagner@suse.com</a></p>
