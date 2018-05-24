@@ -11,6 +11,7 @@
 * Introduction
 * Isn't a single NAS system enough?
 * What's Ceph?
+* Use Cases
 
 ---
 
@@ -168,6 +169,14 @@ Ceph trades everything off for consistency
 
 --
 
+### Other access methods
+
+* iSCSI
+* NFS
+* Samba/CIFS
+
+--
+
 ### Ceph core compontens
 
 --
@@ -248,5 +257,35 @@ Ceph trades everything off for consistency
 
 ---
 
+# Use Cases
+
+--
+
+Backend storage for OpenStack
+
+--
+
+Integration with AWS S3
+
+--
+
+Backend storage for VMware via iSCSI
+
+--
+
+Video storage/streaming
+
+--
+
+DR solution/backup
+
+--
+
+Archive
+
+---
+
 <img src="images/questions.jpg" style="background:none; border:none; box-shadow:none;">
+
+---
 
