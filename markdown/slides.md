@@ -2,7 +2,9 @@
 
 <hr>
 <p>Kai Wagner | <a href="mailto:kwagner@suse.com">kwagner@suse.com</a></p>
-<p>HPE Seminar</p>
+<p>Techtalk
+
+</p>
 
 ---
 
@@ -148,10 +150,11 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 ### ...more features
 
 * iSCSI target management (lrbd)
+* RBD snapshot management
 * Ceph Object Gateway management (RGW Admin Ops API)
 * Support Ceph Luminous features (e.g. pool compression)
 * Web-based configuration
-* Detailed feedback to the user on how to resolve configuration issues
+* Detailed feedback to the user on how to resolve config issues
 
 ---
 
@@ -245,14 +248,24 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 
 --
 
-### Upcoming/WIP
+### ...there is more 
 
-* Grafana proxy (PR opened)
+* Grafana proxy
 * Further Ceph pool management
 * Clusterwide Ceph OSD management
 * Configuration settings editor
 * Localization
 * User permissions (based on pages)
+
+--
+
+### Upcoming/WIP 
+
+* Support for managing RBD QoS
+* Profiles to set cluster's rebuild performance
+* Runner to enable/disable storage enclosure LED
+* iSCSI/NFS management
+
 
 ---
 
