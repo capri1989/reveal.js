@@ -2,7 +2,7 @@
 
 <hr>
 <p>Kai Wagner | <a href="mailto:kwagner@suse.com">kwagner@suse.com</a></p>
-<p>Lars Marowsky-Brée | <a href="mailto:lmb@suse.com">lmb@suse.com</a></p>
+<p>Lars Marowsky-Breé | <a href="mailto:lmb@suse.com">lmb@suse.com</a></p>
 <p>SOC All-Hands
 
 </p>
@@ -17,7 +17,6 @@
 * Prometheus and Grafana
 * openATTIC 3.x
 * Ceph Manager Dashboard
-* SES 6
 * Live Demo
 
 ---
@@ -37,10 +36,10 @@
 ```
 
 ```
-[lmb] (lmb@berlin.de): Lars Marowsky-Brée
+[lmb] (lmb@berlin.de): Lars Marowsky-Breé
 [lmb] #ceph #suse #storage 
 [lmb] lmb.suse.de :SUSE Employee 
-[lmb] idle, signon: $$$ $$$ $$,$$$$ 
+[lmb] idle 256189:02:41, signon: $$$ $$$ $$,$$$$ 
 [lmb] End of WHOIS list.
 ```
 
@@ -119,9 +118,9 @@ DeepSea is a collection of Salt files for deploying, managing and automating all
 
 ### SOC Integration
 
-* Create pools for use by glance, cinder, cinder-backup and nova
-* Create users for glance, cinder and cinder-backup
-* Can be modified with "prefix" option
+Create pools and users necessary for OpenStack integration.  Returns
+relevant Ceph configuration and keys, to be used to subsequently
+configure OpenStack.
 
 --
 
