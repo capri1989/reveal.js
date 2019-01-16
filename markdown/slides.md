@@ -32,7 +32,7 @@
 [capri] (capri@fulda.de): Kai Wagner
 [capri] #ceph #ceph-dashboard #opensuse #suse #storage 
 [capri] capri.suse.de :SUSE Employee 
-[capri] idle 256189:02:41, signon: Thu Jan 26th,1989 23:26
+[capri] idle 262744:02:41, signon: Thu Jan 26th,1989 23:26
 [capri] End of WHOIS list.
 ```
 
@@ -308,4 +308,4 @@ salt-run --out=yaml openstack.integrate prefix=other
 
 ### Live Demo
 
-<a href="http://dilbert.com/strip/2000-12-30" target="_blank"><img src="images/openattic-login.png" /></a>
+<a href="http://dilbert.com/strip/2000-12-30" target="_blank"><img src="images/ceph-mgr-dashboard.jpg" /></a>
