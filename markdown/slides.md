@@ -1,4 +1,4 @@
-# Ceph 
+<div><img alt="ceph logo" width="35%" src="images/ceph-logo.png" style="background:none; border:none; box-shadow:none;"></div>
 
 <hr>
 Was ist neu in Nautilus und was kommt als Nächstes? 
@@ -162,6 +162,65 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
 ---
 
 # RADOS
+
+--
+
+#### Messenger V2
+
+* New version of the Ceph on-wire protocol
+* Goodness
+ * Encryption on the wire
+ * Improved feature negotiation
+ * Improved support for extensible authentication
+  * Kerberos is coming soon… hopefully in Octopus!
+ * Infrastructure to support dual stack IPv4 and IPv6 (not quite complete)
+* Move to IANA-assigned monitor port 3300
+* Dual support for v1 and v2 protocols
+ * After upgrade, monitor will start listening on 3300, other daemons will starting binding to new v2 ports
+ * Kernel support for v2 will come later
+
+--
+
+#### RADOS - MISC Management
+
+* osd_target_memory
+ * Set target memory usage and OSD caches auto-adjust to fit
+* NUMA management, pinning
+ * ‘ceph osd numa-status’ to see OSD network and storage NUMA node
+ * ‘ceph config set osd.<osd-id> osd_numa_node <num> ; ceph osd down <osd-id>’
+* Improvements to centralized config mgmt
+ * Especially options from mgr modules
+ * Type checking, live changes without restarting ceph-mgr
+* Progress bars on recovery, etc.
+ * ‘ceph progress’
+ * Eventually this will get rolled into ‘ceph -s’...
+* ‘Misplaced’ is no longer HEALTH_WARN
+
+--
+
+#### Bluestore improvements
+
+* New ‘bitmap’ allocator
+ * Faster
+ * Predictable and low memory utilization (~10MB RAM per TB SDD, ~3MB  RAM per TB HDD)
+ * Less fragmentation
+* Intelligent cache management
+ * Balance memory allocation between RocksDB cache, BlueStore onodes, data
+* Per-pool utilization metrics
+ * User data, allocated space, compressed size before/after, omap space consumption
+ * These bubble up to ‘ceph df’ to monitor e.g., effectiveness of compression
+* Misc performance improvements
+
+--
+
+#### RADOS Miscellany
+
+* CRUSH can convert/reclassify legacy maps
+ * Transition from old, hand-crafted maps to new device classes (new in Luminous) no longer shuffles all data
+* OSD hard limit on PG log length
+ * Avoids corner cases that could cause OSD memory utilization to grow unbounded
+* Clay erasure code plugin
+ * Better recovery efficiency when <<m nodes fail (for a k+m code)>
 
 ---
 
