@@ -1,8 +1,12 @@
-# $TITLE 
+# Ceph 
+
+<hr>
+Was ist neu in Nautilus und was kommt als Nächstes? 
+</hr>
 
 <hr>
 <p>Kai Wagner | <a href="mailto:kwagner@suse.com">kwagner@suse.com</a></p>
-<p>$EVENT
+<p>Chemnitzer Linuxtage 2019
 
 </p>
 
@@ -11,6 +15,13 @@
 ### Content for today
 
 * Introduction
+* Management
+* RADOS
+* RGW
+* RBD
+* CephFS
+* Container
+* Community
 
 ---
 
@@ -30,4 +41,30 @@
 
 ---
 
-# $TOPIC
+# Management
+
+---
+
+# RADOS
+
+---
+
+# RGW
+
+---
+
+# RBD
+
+---
+
+# CephFS
+
+---
+
+# Container
+
+---
+
+# Community
+
+---
