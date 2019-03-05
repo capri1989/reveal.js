@@ -39,6 +39,23 @@ Was ist neu in Nautilus und was kommt als Nächstes?
 [capri] End of WHOIS list.
 ```
 
+--
+
+<img src="images/ceph_stack.png" style="background:none; border:none; box-shadow:none;">
+
+--
+
+#### Release Schedule
+
+<img src="images/release-schedule.png" style="background:none; border:none; box-shadow:none;">
+
+* Stable, named release every 9 months
+* Backports for 2 releases
+* Upgrade up to 2 releases at a time
+ * e.g Luminous -> Nautilus, Mimic -> Octopus
+
+--
+
 ---
 
 # Management
