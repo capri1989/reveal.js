@@ -56,9 +56,34 @@ Was ist neu in Nautilus und was kommt als Nächstes?
 
 --
 
+#### Ceph Priorities
+
+* Usability and management
+
+* Container ecosystem
+
+* Performance
+
+* Multi- and hyprid cloud
+
 ---
 
 # Management
+
+--
+
+#### Ceph Dashboard
+
+--
+
+#### Ceph Dashboard
+
+
+--
+
+#### Orchestrator Sandwich
+
+<img src="images/orchestrator-sandwich.png" style="background:none; border:none; box-shadow:none;">
 
 ---
 
