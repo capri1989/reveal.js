@@ -220,26 +220,188 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
 * OSD hard limit on PG log length
  * Avoids corner cases that could cause OSD memory utilization to grow unbounded
 * Clay erasure code plugin
- * Better recovery efficiency when <<m nodes fail (for a k+m code)>
+ * Better recovery efficiency when '<m nodes fail (for a k+m code)'
 
 ---
 
 # RGW
 
+--
+
+#### RGW
+
+* pub/sub
+ * Subscribe to events like PUT
+ * Polling interface, recently demoed with knative at KubeCon Seattle
+ * Push interface to AMQ, Kafka coming soon
+* Archive zone
+ * Enable bucket versioning and retain all copies of all objects
+* Tiering policy, lifecycle management
+ * Implements S3 API for tiering and expiration
+* Beast frontend for RGW
+ * Based on boost::asio
+ * Better performance and efficiency
+* STS
+
 ---
 
 # RBD
+
+--
+
+#### RBD Live Image Migration
+
+<img src="images/rbd-live-migration.png" style="background:none; border:none; box-shadow:none;">
+
+--
+
+#### RBD Top
+
+* RADOS instracture
+ * ceph-mgr instructs OSDs to sample requests
+  * Optionally with some filtering by pool, object name, client, etc.
+ * Results aggregated by mgr
+* rbd CLI presents this for RBD images specifically
+
+--
+
+#### RBD Misc
+
+* rbd-mirror: remote cluster endpoint config stored in cluster
+ * Simpler configuration experience!
+* Namespace support
+ * Lock down tenants to a slice of a pool
+ * Private view of images, etc.
+* Pool-level config overrides
+ * Simpler configuration
+* Creation, access, modification timestamps
 
 ---
 
 # CephFS
 
+--
+
+#### CephFS Volumes and Subvolumes
+
+* Multi-fs (“volume”) support stable
+ * Each CephFS volume has independent set of RADOS pools, MDS cluster
+* First-class subvolume concept
+ * Sub-directory of a volume with quota, unique cephx user, and restricted to a RADOS namespace
+ * Based on ceph_volume_client.py, written for OpenStack Manila driver, now part of ceph-mgr
+* ‘ceph fs volume …’, ‘ceph fs subvolume …’
+
+-- 
+
+#### CephFS NFS Gateways
+
+* Clustered nfs-ganesha
+ * active/active
+ * Correct failover semantics (i.e., managed NFS grace period)
+ * nfs-ganesha daemons use RADOS for configuration, grace period state
+ * (See Jeff Layton’s devconf.cz talk recording)
+* nfs-ganesha daemons fully managed via new orchestrator interface
+ * Fully supported with Rook; others to follow
+ * Full support from CLI to Dashboard
+* Mapped to new volume/subvolume concept
+
+--
+
+#### CephFS Misc
+
+* Cephfs shell
+ * CLI tool with shell-like commands (cd, ls, mkdir, rm)
+ * Easily scripted
+ * Useful for e.g., setting quota attributes on directories without mounting the fs
+* Performance, MDS scale(-up) improvements
+ * Many fixes for MDSs with large amounts of RAM
+ * MDS balancing improvements for multi-MDS clusters
+
 ---
 
 # Container
+
+--
+
+#### Kubernetes
+
+* Expose Ceph storage to Kubernetes
+ * Any scale-out infrastructure platform needs scale-out storage
+* Run Ceph clusters in Kubernetes
+ * Simplify/hide OS dependencies
+ * Finer control over upgrades
+ * Schedule deployment of Ceph daemons across hardware nodes
+* Kubernetes as “distributed OS”
+
+--
+
+#### Rook
+
+* All-in on Rook as a robust operator for Ceph in Kubernetes
+ * Extremely easy to get Ceph up and running!
+* Intelligent management of Ceph daemons
+ * add/remove monitors while maintaining quorum
+ * Schedule stateless daemons (rgw, nfs, rbd-mirror) across nodes
+* Kubernetes-style provisioning of storage
+ * Persistent Volumes (RWO and RWX)
+ * Coming: dynamic provisioning of RGW users and buckets
+* Enthusiastic user community, CNCF incubation project
+* Working hard toward v1.0 release
+ * Focus on ability to support in production environments
+
+--
+
+#### Barebones Container Orchestration
+
+* We have: rook, deepsea, ansible, and ssh orchestrator (WIP) implementations
+* ssh orch gives mgr a root ssh key to Ceph nodes
+ * Moral equivalent/successor of ceph-deploy, but built into the mgr
+ * Plan is to eventually combine with a ceph-bootstrap.sh that starts mon+mgr on current host
+* ceph-ansible can run daemons in containers
+ * Creates a systemd unit file for each daemon that does ‘docker run …’
+* Plan to teach ssh orchestrator to do the same
+ * Easier install
+  * s/fiddling with $random_distro repos/choose container registry and image/
+ * Daemons can be upgraded individually, in any order, instead of by host
 
 ---
 
 # Community
 
----
+--
+
+
+#### Ceph Foundation: What is it?
+
+* Organized as a directed fund under the Linux Foundation
+ * Members contribute and pool funds
+ * Governing board manages expenditures
+* Tasked with supporting the Ceph project community
+ * Financial support for project infrastructure, events, internships, outreach, marketing, and related efforts
+ * Forum for coordinating activities and investments, providing guidance to technical teams for roadmap, and evolving project governance
+* 31 founding member organizations
+ * 13 Premier Members, 10 General Members, 8 Associate members (academic and government institutions)
+* 3 more members have joined since launch
+
+--
+
+#### Cephalocon Beijing
+
+* Inaugural Cephalocon APAC took place in March 2018
+ * Beijing, China
+ * 2 days, 4 tracks, 1000 attendees
+ * Users, vendors, partners, developers
+* 14 industry sponsors
+
+--
+
+#### Cephalocon Barcelona
+
+* Cephalocon Barcelona 2019
+ * May 19-20, 2019
+ * Barcelona, Spain
+ * Similar format: 2 days, 4 tracks
+* Co-located with KubeCon + CloudNativeCon
+ * May 20-23, 2018
+* https://ceph.com/cephalocon/
+
