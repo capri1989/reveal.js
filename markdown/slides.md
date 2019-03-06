@@ -368,8 +368,8 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
 
 # Community
 
---
 
+--
 
 #### Ceph Foundation: What is it?
 
@@ -383,6 +383,8 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
  * 13 Premier Members, 10 General Members, 8 Associate members (academic and government institutions)
 * 3 more members have joined since launch
 
+<img src="images/linux-foundation.png" style="background:none; border:none; box-shadow:none;">
+
 --
 
 #### Cephalocon Beijing
@@ -393,7 +395,7 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
  * Users, vendors, partners, developers
 * 14 industry sponsors
 
-<img src="images/cephalocon-beijing.png" style="background:none; border:none; box-shadow:none; position:bottom">
+<img src="images/cephalocon-beijing.png" style="background:none; border:none; box-shadow:none;">
 
 --
 
