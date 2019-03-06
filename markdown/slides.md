@@ -220,7 +220,7 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
 * OSD hard limit on PG log length
  * Avoids corner cases that could cause OSD memory utilization to grow unbounded
 * Clay erasure code plugin
- * Better recovery efficiency when '<m nodes fail (for a k+m code)'
+ * Better recovery efficiency when less m nodes fail (for a k+m code)
 
 ---
 
@@ -392,6 +392,8 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
  * 2 days, 4 tracks, 1000 attendees
  * Users, vendors, partners, developers
 * 14 industry sponsors
+
+<img src="images/cephalocon-beijing.png" style="background:none; border:none; box-shadow:none; position:bottom">
 
 --
 
