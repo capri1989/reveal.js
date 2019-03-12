@@ -43,6 +43,9 @@ Was ist neu in Nautilus und was kommt als Nächstes?
 
 <img src="images/ceph_stack.png" style="background:none; border:none; box-shadow:none;">
 
+Note:
+Ceph ist eine Unified Storage Plattform welche Objekt, Block und Filestorage zur Verfügung stellen kann
+
 --
 
 #### Release Schedule
@@ -53,6 +56,11 @@ Was ist neu in Nautilus und was kommt als Nächstes?
 * Backports for 2 releases
 * Upgrade up to 2 releases at a time
  * e.g Luminous -> Nautilus, Mimic -> Octopus
+
+Note:
+Aktuelle Release Zyklus ist 9 Monate.
+Es wird dabei ein n-2 n+2 Upgrade unterstützt
+Maximum von 18 Monaten aktuell möglich bevor ein Upgrade ansteht
 
 --
 
@@ -66,6 +74,13 @@ Was ist neu in Nautilus und was kommt als Nächstes?
 
 * Multi- and hyprid cloud
 
+Note:
+Upstream hat 4 Leitelemente aktuell:
+Usability and management - Ceph hat immer den Beigeschmack sehr schwierig zu benutzen zu sein, von der Installation über das Mangement
+Performance - Jeder will All-flash und NVMe und somit muss auch Ceph nachziehen. Aktuell gibt ein ein Projekt Names "crimson" was den OSD stack neu definiert für diesen Fall
+Container Ecosystem - kubernetes, csi
+
+
 ---
 
 # Management
@@ -75,6 +90,11 @@ Was ist neu in Nautilus und was kommt als Nächstes?
 #### Ceph Dashboard
 
 <img src="images/ceph-dashboard.png" style="background:none; border:none; box-shadow:none;">
+
+Note:
+Größte Neuigkeit in diesem Bereich ist das Ceph Dashboard
+Erste read-only Implementierung mit Luminous
+Jetzt dank dem openATTIC team und Projekt haben wir endlich eine nutzbare und hilfreiche UI
 
 --
 
@@ -93,6 +113,13 @@ Was ist neu in Nautilus und was kommt als Nächstes?
 
 <img src="images/orchestrator-sandwich.png" style="background:none; border:none; box-shadow:none;">
 
+Note:
+Orchestrator Abstraktion
+Die Idee dahinter ist einen Orchestrator Layer zu haben der egal welches Tool Ceph nutzen will dies vereinheitlich und vereinfacht
+Aktuell wird an rook, ansible, DeepSea und ssh gearbeitet.
+Ceph spricht mit dem Orchestrator egal wer diese Anfrage einkippt und kümmert sich um die Ausführung
+Das ist die Grundlage für eine einheitliche ceph-cli
+
 --
 
 #### Orchestrator Sandwich
@@ -100,12 +127,16 @@ Was ist neu in Nautilus und was kommt als Nächstes?
 * Abstract deployment functions
  * Fetching node inventory
  * Creating or destroying daemon deployments
+ * Blinking device LEDs
  * ... 
 * Unified CLI for managing Ceph daemons
  * ceph orchestrator device ls [node]
  * ceph orchestrator osd create [flags] node device [device]
  * ...
 * WIP - Enable dashboard GUI for deploying and managing daemons
+
+Note:
+Wir sind sehr froh das wir endlich soweit sind und somit auch nur noch wenige Schritte davon entfernt endlich einen kompletten Cluster im Dashboard managen zu können.
 
 --
 
@@ -120,6 +151,13 @@ Was ist neu in Nautilus und was kommt als Nächstes?
  * Administrator can optionally hint about future/expected usage
  * Ceph can either issue health warning or initiate changes itself
 
+Note:
+Eines der großen RADOS features in Nautilus
+Leute waren immer verwirrt und keiner wusste genau wie er die PGs definieren sollte
+Es war immer möglich die pg_num zu erhöhen, aber nicht zu verringern - fixed in Nautilus
+PGs können automatisch im Hintergrund anpassen - Es schaut sich den Cluster und die Daten an und passt das die pg_num an
+Es kann informieren oder es selbst machen, kann gewählt werden - wenn unterschied von soll zu sein >3 ist
+
 --
 
 #### Device health metrics
@@ -131,6 +169,8 @@ Was ist neu in Nautilus und was kommt als Nächstes?
 * Optional automatic mitigation
  * Raise health alerts (about specific failing devices, or looming failure storm)
  * Automatically mark soon-to-fail OSDs “out”
+
+
 
 --
 
