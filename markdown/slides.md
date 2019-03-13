@@ -170,7 +170,11 @@ Es kann informieren oder es selbst machen, kann gewählt werden - wenn unterschi
  * Raise health alerts (about specific failing devices, or looming failure storm)
  * Automatically mark soon-to-fail OSDs “out”
 
-
+Note:
+Es wird unterhalb allem geschaut, hinter Partition und LVM etc - direkt die Seriennummer und der Typ
+Diese Infos werden vom ceph-mgr verwaltet
+Es gibt neue Fuktionalität in den OSDs die diese Health daten in RADOS Objects speichern
+Zusammen mit der blinking LEDs Funktionalität können Disks getauscht werden
 
 --
 
@@ -199,6 +203,12 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
 * ‘ceph crash ls’, ‘ceph crash info <id>’, ...
 * If user opts in, telemetry module can phone home crashes to Ceph devs
 
+Note:
+Vorher einfach einen crash report geschrieben ohne das es jemand mitbekommen hat - Daemon restart fertig
+report /var/lib/ceph/crash process id, timestamp and a stacktrace
+Es gibt eine Telemetry Module - muss aktiviert werden - kann Basis Infos Upstream schicken - how many OSDs, which version etc
+Telemetry kann diese crash reports direkt mit übermitteln damit die devs davon lernen können
+
 ---
 
 # RADOS
@@ -219,6 +229,11 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
  * After upgrade, monitor will start listening on 3300, other daemons will starting binding to new v2 ports
  * Kernel support for v2 will come later
 
+Note:
+Kompletter Traffic zwischen allen Daemons in Ceph kann verschlüsselt werden
+Aktuell kann man nur IPv4 oder IPv6 nutzen, damit geht nun Dual Stack
+
+
 --
 
 #### RADOS - MISC Management
@@ -236,6 +251,13 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
  * Eventually this will get rolled into ‘ceph -s’...
 * ‘Misplaced’ is no longer HEALTH_WARN
 
+Note:
+Es war schwierig zu sagen wie viel RAM ein OSD wirklich nutzen wird - Ich will das meine OSD 3GB RAM max nutzt und Ceph passt alles andere selbst an
+Es können OSD jetzt an bestimmte NUMA nodes gebunden werden
+Anstelle von der ceph.conf auf tausenden nodes befindet sich die Config jetzt direkt nur noch auf den Monitoren
+For long running Tasks gibt es jetzt ein "ceph progress" was eine Fortschrittsanzeige für solche Vorgänge anzeigt
+Misplaced data but not degraded führt jetzt nicht mehr zu Health_Warn - kann geändert werden aber so kann man weiterschlafen
+
 --
 
 #### Bluestore improvements
@@ -251,6 +273,10 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
  * These bubble up to ‘ceph df’ to monitor e.g., effectiveness of compression
 * Misc performance improvements
 
+Note:
+
+Problem war häufig die Cache Größen der RocksDB etc - In Nautilus kümmert sich Ceph da nun selber drum
+
 --
 
 #### RADOS Miscellany
@@ -262,6 +288,12 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
 * Clay erasure code plugin
  * Better recovery efficiency when less m nodes fail (for a k+m code)
 
+Note:
+Die neuen Device Klassen mit HDD und SSD mit denen man einfach Crush Regeln schreiben kann die nur auf einen bestimmten Disk Typ abzielen
+können nun on the fly migriert werden - Before it was manual work
+In einigen Cases kann es dazu führen das eine OSD unbestimmt viel RAM frisst
+Clay sorgt dafür das ein optimaleres Verhältnis zwischen Bandwith und IO
+
 ---
 
 # RGW
@@ -272,7 +304,7 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
 
 * pub/sub
  * Subscribe to events like PUT
- * Polling interface, recently demoed with knative at KubeCon Seattle
+ * Polling interface
  * Push interface to AMQ, Kafka coming soon
 * Archive zone
  * Enable bucket versioning and retain all copies of all objects
@@ -280,8 +312,14 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
  * Implements S3 API for tiering and expiration
 * Beast frontend for RGW
  * Based on boost::asio
- * Better performance and efficiency
-* STS
+ * Better performance, efficiency and scaliblity 
+
+Note:
+Es können Zones erstellt werden die bei bestimmten Events Meldung geben - Es wird ein Eventstream erzeugt aus dem man die Daten lesen kann (polling interface um an Daten zu kommen)
+Ein PUT kann eine Function as a service auslösen - nette Sache :) 
+Archive zone mit Object versioning - full copy of your data but versionized
+S3 API die es möglich macht Tiering zu implementieren - in einem Cluster across different pools
+Früher Apache und civetweb und nun mit Nautilus nutzen wir Beast als Webfrontend
 
 ---
 
@@ -292,6 +330,9 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
 #### RBD Live Image Migration
 
 <img src="images/rbd-live-migration.png" style="background:none; border:none; box-shadow:none;">
+
+Note:
+Man konnte immer schon verschiedene Pools mit unterschiedlicher Performance haben und war dann gebunden wo man das RBD erstellt hatte
 
 --
 
@@ -316,6 +357,12 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
  * Simpler configuration
 * Creation, access, modification timestamps
 
+Note:
+rbd-mirror ist der Deamon der die asynchronce Replikation übernimmt - gibt es seit Luminous
+In einem Pool kann man Security Domains machen und dann clients zu einem bestimmten Bereich locken
+Es war möglich schon caching z.B. auf bestimmten RBDs zu aktivieren aber nun kann das auch direkt auf dem Pool gemacht werden und durch eine einheitliche CLI
+"rbd ls" hat nun auch timestamps somit sieht man auch wer und wann dieses image nutzt
+
 ---
 
 # CephFS
@@ -331,6 +378,10 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
  * Based on ceph_volume_client.py, written for OpenStack Manila driver, now part of ceph-mgr
 * ‘ceph fs volume …’, ‘ceph fs subvolume …’
 
+Note:
+Multi-fs ist jetzt stable - D.h es können multiple CephFS filesystems in einem Ceph Cluster erstellt werden
+Der Teil wurde aus dem OpenStack Manila driver jetzt direkt in den ceph-mgr übernommen. Alle nutzen jetzt die gleiche Abstraktion hier - cli und dashboard
+
 -- 
 
 #### CephFS NFS Gateways
@@ -345,6 +396,10 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
  * Full support from CLI to Dashboard
 * Mapped to new volume/subvolume concept
 
+Note:
+Jeff Layton hat es so umgebaut das es jetzt ein Object in Rados gibt was alle diese Informationen hält 
+NFS Gateways storen ihre configs nun auch in einem Rados Object etc
+
 --
 
 #### CephFS Misc
@@ -356,6 +411,10 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
 * Performance, MDS scale(-up) improvements
  * Many fixes for MDSs with large amounts of RAM
  * MDS balancing improvements for multi-MDS clusters
+
+Note:
+Ein outreachy project hat uns die cephfs shell gebracht für Skripting für CephFS
+Zuvor musste man für Quota z.B. erst CephFS mounten und dann das Attribute setzen, dass geht nun via CLI
 
 ---
 
@@ -372,6 +431,12 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
  * Finer control over upgrades
  * Schedule deployment of Ceph daemons across hardware nodes
 * Kubernetes as “distributed OS”
+
+Note:
+Bei Containern gibt es zwei Sichtweisen - Wir stellen den Storage unterhalb vo Kubernetes zu Verfügung
+oder wir lassen den Ceph cluster in Kubernetes laufen
+Besonders bei Gateways z.B. die einfach überall laufen können, kann sich einfach Kubernetes darum kümmern und schauen
+wo es am Besten gerade passt
 
 --
 
