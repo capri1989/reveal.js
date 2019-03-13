@@ -488,7 +488,7 @@ wo es am Besten gerade passt
  * 13 Premier Members, 10 General Members, 8 Associate members (academic and government institutions)
 * 3 more members have joined since launch
 
-<img src="images/linux-foundation.png" style="background:none; border:none; box-shadow:none;">
+<img src="images/linux-foundation.png" width="25%" style="background:none; border:none; box-shadow:none;">
 
 --
 
