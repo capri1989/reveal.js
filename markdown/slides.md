@@ -346,6 +346,16 @@ Note:
 
 --
 
+```
+rbd perf image iotop
+
+ >WRITES OPS    READS OPS  WRITE BYTES   READ BYTES    WRITE LAT     READ LAT IMAGE                                                       
+        10/s         10/s    160 KiB/s        0 B/s       8.96 s       8.96 s rbd/img1
+         7/s          0/s     30 MiB/s    2.4 MiB/s    451.06 ms      7.10 ms rbd/img2
+```
+
+--
+
 #### RBD Misc
 
 * rbd-mirror: remote cluster endpoint config stored in cluster
