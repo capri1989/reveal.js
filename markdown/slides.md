@@ -514,3 +514,11 @@ wo es am Besten gerade passt
 * https://ceph.com/cephalocon/
 
 <img src="images/cephalocon-barcelona.png" width="35%" style="background:none; border:none; box-shadow:none;">
+
+---
+
+# Links
+
+* https://capri1989.github.io/clt2019/
+* https://github.com/ceph/ceph/
+* https://github.com/ceph/ceph/blob/master/doc/releases/nautilus.rst
