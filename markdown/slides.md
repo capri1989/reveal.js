@@ -44,7 +44,7 @@ Was ist neu in Nautilus und was kommt als Nächstes?
 <img src="images/ceph_stack.png" style="background:none; border:none; box-shadow:none;">
 
 Note:
-Ceph ist eine Unified Storage Plattform welche Objekt, Block und Filestorage zur Verfügung stellen kann
+* Ceph ist eine Unified Storage Plattform welche Objekt, Block und Filestorage zur Verfügung stellen kann
 
 --
 
@@ -58,9 +58,9 @@ Ceph ist eine Unified Storage Plattform welche Objekt, Block und Filestorage zur
  * e.g Luminous -> Nautilus, Mimic -> Octopus
 
 Note:
-Aktuelle Release Zyklus ist 9 Monate.
-Es wird dabei ein n-2 n+2 Upgrade unterstützt
-Maximum von 18 Monaten aktuell möglich bevor ein Upgrade ansteht
+* Aktuelle Release Zyklus ist 9 Monate.
+* Es wird dabei ein n-2 n+2 Upgrade unterstützt
+* Maximum von 18 Monaten aktuell möglich bevor ein Upgrade ansteht
 
 --
 
@@ -75,10 +75,10 @@ Maximum von 18 Monaten aktuell möglich bevor ein Upgrade ansteht
 * Multi- and hyprid cloud
 
 Note:
-Upstream hat 4 Leitelemente aktuell:
-Usability and management - Ceph hat immer den Beigeschmack sehr schwierig zu benutzen zu sein, von der Installation über das Mangement
-Performance - Jeder will All-flash und NVMe und somit muss auch Ceph nachziehen. Aktuell gibt ein ein Projekt Names "crimson" was den OSD stack neu definiert für diesen Fall
-Container Ecosystem - kubernetes, csi
+* Upstream hat 4 Leitelemente aktuell:
+* Usability and management - Ceph hat immer den Beigeschmack sehr schwierig zu benutzen zu sein, von der Installation über das Mangement
+* Performance - Jeder will All-flash und NVMe und somit muss auch Ceph nachziehen. Aktuell gibt ein ein Projekt Names "crimson" was den OSD stack neu definiert für diesen Fall
+* Container Ecosystem - kubernetes, csi
 
 
 ---
@@ -92,9 +92,9 @@ Container Ecosystem - kubernetes, csi
 <img src="images/ceph-dashboard.png" style="background:none; border:none; box-shadow:none;">
 
 Note:
-Größte Neuigkeit in diesem Bereich ist das Ceph Dashboard
-Erste read-only Implementierung mit Luminous
-Jetzt dank dem openATTIC team und Projekt haben wir endlich eine nutzbare und hilfreiche UI
+* Größte Neuigkeit in diesem Bereich ist das Ceph Dashboard
+* Erste read-only Implementierung mit Luminous
+* Jetzt dank dem openATTIC team und Projekt haben wir endlich eine nutzbare und hilfreiche UI
 
 --
 
@@ -114,11 +114,11 @@ Jetzt dank dem openATTIC team und Projekt haben wir endlich eine nutzbare und hi
 <img src="images/orchestrator-sandwich.png" style="background:none; border:none; box-shadow:none;">
 
 Note:
-Orchestrator Abstraktion
-Die Idee dahinter ist einen Orchestrator Layer zu haben der egal welches Tool Ceph nutzen will dies vereinheitlich und vereinfacht
-Aktuell wird an rook, ansible, DeepSea und ssh gearbeitet.
-Ceph spricht mit dem Orchestrator egal wer diese Anfrage einkippt und kümmert sich um die Ausführung
-Das ist die Grundlage für eine einheitliche ceph-cli
+* Orchestrator Abstraktion
+* Die Idee dahinter ist einen Orchestrator Layer zu haben der egal welches Tool Ceph nutzen will dies vereinheitlich und vereinfacht
+* Aktuell wird an rook, ansible, DeepSea und ssh gearbeitet.
+* Ceph spricht mit dem Orchestrator egal wer diese Anfrage einkippt und kümmert sich um die Ausführung
+* Das ist die Grundlage für eine einheitliche ceph-cli
 
 --
 
@@ -136,7 +136,7 @@ Das ist die Grundlage für eine einheitliche ceph-cli
 * WIP - Enable dashboard GUI for deploying and managing daemons
 
 Note:
-Wir sind sehr froh das wir endlich soweit sind und somit auch nur noch wenige Schritte davon entfernt endlich einen kompletten Cluster im Dashboard managen zu können.
+* Wir sind sehr froh das wir endlich soweit sind und somit auch nur noch wenige Schritte davon entfernt endlich einen kompletten Cluster im Dashboard managen zu können.
 
 --
 
@@ -152,11 +152,11 @@ Wir sind sehr froh das wir endlich soweit sind und somit auch nur noch wenige Sc
  * Ceph can either issue health warning or initiate changes itself
 
 Note:
-Eines der großen RADOS features in Nautilus
-Leute waren immer verwirrt und keiner wusste genau wie er die PGs definieren sollte
-Es war immer möglich die pg_num zu erhöhen, aber nicht zu verringern - fixed in Nautilus
-PGs können automatisch im Hintergrund anpassen - Es schaut sich den Cluster und die Daten an und passt das die pg_num an
-Es kann informieren oder es selbst machen, kann gewählt werden - wenn unterschied von soll zu sein >3 ist
+* Eines der großen RADOS features in Nautilus
+* Leute waren immer verwirrt und keiner wusste genau wie er die PGs definieren sollte
+* Es war immer möglich die pg_num zu erhöhen, aber nicht zu verringern - fixed in Nautilus
+* PGs können automatisch im Hintergrund anpassen - Es schaut sich den Cluster und die Daten an und passt das die pg_num an
+* Es kann informieren oder es selbst machen, kann gewählt werden - wenn unterschied von soll zu sein >3 ist
 
 --
 
@@ -171,10 +171,10 @@ Es kann informieren oder es selbst machen, kann gewählt werden - wenn unterschi
  * Automatically mark soon-to-fail OSDs “out”
 
 Note:
-Es wird unterhalb allem geschaut, hinter Partition und LVM etc - direkt die Seriennummer und der Typ
-Diese Infos werden vom ceph-mgr verwaltet
-Es gibt neue Fuktionalität in den OSDs die diese Health daten in RADOS Objects speichern
-Zusammen mit der blinking LEDs Funktionalität können Disks getauscht werden
+* Es wird unterhalb allem geschaut, hinter Partition und LVM etc - direkt die Seriennummer und der Typ
+* Diese Infos werden vom ceph-mgr verwaltet
+* Es gibt neue Fuktionalität in den OSDs die diese Health daten in RADOS Objects speichern
+* Zusammen mit der blinking LEDs Funktionalität können Disks getauscht werden
 
 --
 
@@ -204,10 +204,10 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
 * If user opts in, telemetry module can phone home crashes to Ceph devs
 
 Note:
-Vorher einfach einen crash report geschrieben ohne das es jemand mitbekommen hat - Daemon restart fertig
-report /var/lib/ceph/crash process id, timestamp and a stacktrace
-Es gibt eine Telemetry Module - muss aktiviert werden - kann Basis Infos Upstream schicken - how many OSDs, which version etc
-Telemetry kann diese crash reports direkt mit übermitteln damit die devs davon lernen können
+* Vorher einfach einen crash report geschrieben ohne das es jemand mitbekommen hat - Daemon restart fertig
+* report /var/lib/ceph/crash process id, timestamp and a stacktrace
+* Es gibt eine Telemetry Module - muss aktiviert werden - kann Basis Infos Upstream schicken - how many OSDs, which version etc
+* Telemetry kann diese crash reports direkt mit übermitteln damit die devs davon lernen können
 
 ---
 
@@ -230,8 +230,8 @@ Telemetry kann diese crash reports direkt mit übermitteln damit die devs davon 
  * Kernel support for v2 will come later
 
 Note:
-Kompletter Traffic zwischen allen Daemons in Ceph kann verschlüsselt werden
-Aktuell kann man nur IPv4 oder IPv6 nutzen, damit geht nun Dual Stack
+* Kompletter Traffic zwischen allen Daemons in Ceph kann verschlüsselt werden
+* Aktuell kann man nur IPv4 oder IPv6 nutzen, damit geht nun Dual Stack
 
 
 --
@@ -252,11 +252,11 @@ Aktuell kann man nur IPv4 oder IPv6 nutzen, damit geht nun Dual Stack
 * ‘Misplaced’ is no longer HEALTH_WARN
 
 Note:
-Es war schwierig zu sagen wie viel RAM ein OSD wirklich nutzen wird - Ich will das meine OSD 3GB RAM max nutzt und Ceph passt alles andere selbst an
-Es können OSD jetzt an bestimmte NUMA nodes gebunden werden
-Anstelle von der ceph.conf auf tausenden nodes befindet sich die Config jetzt direkt nur noch auf den Monitoren
-For long running Tasks gibt es jetzt ein "ceph progress" was eine Fortschrittsanzeige für solche Vorgänge anzeigt
-Misplaced data but not degraded führt jetzt nicht mehr zu Health_Warn - kann geändert werden aber so kann man weiterschlafen
+* Es war schwierig zu sagen wie viel RAM ein OSD wirklich nutzen wird - Ich will das meine OSD 3GB RAM max nutzt und Ceph passt alles andere selbst an
+* Es können OSD jetzt an bestimmte NUMA nodes gebunden werden
+* Anstelle von der ceph.conf auf tausenden nodes befindet sich die Config jetzt direkt nur noch auf den Monitoren
+* For long running Tasks gibt es jetzt ein "ceph progress" was eine Fortschrittsanzeige für solche Vorgänge anzeigt
+* Misplaced data but not degraded führt jetzt nicht mehr zu Health_Warn - kann geändert werden aber so kann man weiterschlafen
 
 --
 
@@ -275,7 +275,7 @@ Misplaced data but not degraded führt jetzt nicht mehr zu Health_Warn - kann ge
 
 Note:
 
-Problem war häufig die Cache Größen der RocksDB etc - In Nautilus kümmert sich Ceph da nun selber drum
+* Problem war häufig die Cache Größen der RocksDB etc - In Nautilus kümmert sich Ceph da nun selber drum
 
 --
 
@@ -289,10 +289,10 @@ Problem war häufig die Cache Größen der RocksDB etc - In Nautilus kümmert si
  * Better recovery efficiency when less m nodes fail (for a k+m code)
 
 Note:
-Die neuen Device Klassen mit HDD und SSD mit denen man einfach Crush Regeln schreiben kann die nur auf einen bestimmten Disk Typ abzielen
+* Die neuen Device Klassen mit HDD und SSD mit denen man einfach Crush Regeln schreiben kann die nur auf einen bestimmten Disk Typ abzielen
 können nun on the fly migriert werden - Before it was manual work
-In einigen Cases kann es dazu führen das eine OSD unbestimmt viel RAM frisst
-Clay sorgt dafür das ein optimaleres Verhältnis zwischen Bandwith und IO
+* In einigen Cases kann es dazu führen das eine OSD unbestimmt viel RAM frisst
+* Clay sorgt dafür das ein optimaleres Verhältnis zwischen Bandwith und IO
 
 ---
 
@@ -315,11 +315,11 @@ Clay sorgt dafür das ein optimaleres Verhältnis zwischen Bandwith und IO
  * Better performance, efficiency and scaliblity 
 
 Note:
-Es können Zones erstellt werden die bei bestimmten Events Meldung geben - Es wird ein Eventstream erzeugt aus dem man die Daten lesen kann (polling interface um an Daten zu kommen)
-Ein PUT kann eine Function as a service auslösen - nette Sache :) 
-Archive zone mit Object versioning - full copy of your data but versionized
-S3 API die es möglich macht Tiering zu implementieren - in einem Cluster across different pools
-Früher Apache und civetweb und nun mit Nautilus nutzen wir Beast als Webfrontend
+* Es können Zones erstellt werden die bei bestimmten Events Meldung geben - Es wird ein Eventstream erzeugt aus dem man die Daten lesen kann (polling interface um an Daten zu kommen)
+* Ein PUT kann eine Function as a service auslösen - nette Sache :) 
+* Archive zone mit Object versioning - full copy of your data but versionized
+* S3 API die es möglich macht Tiering zu implementieren - in einem Cluster across different pools
+* Früher Apache und civetweb und nun mit Nautilus nutzen wir Beast als Webfrontend
 
 ---
 
@@ -332,7 +332,7 @@ Früher Apache und civetweb und nun mit Nautilus nutzen wir Beast als Webfronten
 <img src="images/rbd-live-migration.png" style="background:none; border:none; box-shadow:none;">
 
 Note:
-Man konnte immer schon verschiedene Pools mit unterschiedlicher Performance haben und war dann gebunden wo man das RBD erstellt hatte
+* Man konnte immer schon verschiedene Pools mit unterschiedlicher Performance haben und war dann gebunden wo man das RBD erstellt hatte
 
 --
 
@@ -358,10 +358,10 @@ Man konnte immer schon verschiedene Pools mit unterschiedlicher Performance habe
 * Creation, access, modification timestamps
 
 Note:
-rbd-mirror ist der Deamon der die asynchronce Replikation übernimmt - gibt es seit Luminous
-In einem Pool kann man Security Domains machen und dann clients zu einem bestimmten Bereich locken
-Es war möglich schon caching z.B. auf bestimmten RBDs zu aktivieren aber nun kann das auch direkt auf dem Pool gemacht werden und durch eine einheitliche CLI
-"rbd ls" hat nun auch timestamps somit sieht man auch wer und wann dieses image nutzt
+* rbd-mirror ist der Deamon der die asynchronce Replikation übernimmt - gibt es seit Luminous
+* In einem Pool kann man Security Domains machen und dann clients zu einem bestimmten Bereich locken
+* Es war möglich schon caching z.B. auf bestimmten RBDs zu aktivieren aber nun kann das auch direkt auf dem Pool gemacht werden und durch eine einheitliche CLI
+* "rbd ls" hat nun auch timestamps somit sieht man auch wer und wann dieses image nutzt
 
 ---
 
@@ -379,8 +379,8 @@ Es war möglich schon caching z.B. auf bestimmten RBDs zu aktivieren aber nun ka
 * ‘ceph fs volume …’, ‘ceph fs subvolume …’
 
 Note:
-Multi-fs ist jetzt stable - D.h es können multiple CephFS filesystems in einem Ceph Cluster erstellt werden
-Der Teil wurde aus dem OpenStack Manila driver jetzt direkt in den ceph-mgr übernommen. Alle nutzen jetzt die gleiche Abstraktion hier - cli und dashboard
+* Multi-fs ist jetzt stable - D.h es können multiple CephFS filesystems in einem Ceph Cluster erstellt werden
+* Der Teil wurde aus dem OpenStack Manila driver jetzt direkt in den ceph-mgr übernommen. Alle nutzen jetzt die gleiche Abstraktion hier - cli und dashboard
 
 -- 
 
@@ -397,8 +397,8 @@ Der Teil wurde aus dem OpenStack Manila driver jetzt direkt in den ceph-mgr übe
 * Mapped to new volume/subvolume concept
 
 Note:
-Jeff Layton hat es so umgebaut das es jetzt ein Object in Rados gibt was alle diese Informationen hält 
-NFS Gateways storen ihre configs nun auch in einem Rados Object etc
+* Jeff Layton hat es so umgebaut das es jetzt ein Object in Rados gibt was alle diese Informationen hält 
+* NFS Gateways storen ihre configs nun auch in einem Rados Object etc
 
 --
 
@@ -413,8 +413,8 @@ NFS Gateways storen ihre configs nun auch in einem Rados Object etc
  * MDS balancing improvements for multi-MDS clusters
 
 Note:
-Ein outreachy project hat uns die cephfs shell gebracht für Skripting für CephFS
-Zuvor musste man für Quota z.B. erst CephFS mounten und dann das Attribute setzen, dass geht nun via CLI
+* Ein outreachy project hat uns die cephfs shell gebracht für Skripting für CephFS
+* Zuvor musste man für Quota z.B. erst CephFS mounten und dann das Attribute setzen, dass geht nun via CLI
 
 ---
 
@@ -433,9 +433,9 @@ Zuvor musste man für Quota z.B. erst CephFS mounten und dann das Attribute setz
 * Kubernetes as “distributed OS”
 
 Note:
-Bei Containern gibt es zwei Sichtweisen - Wir stellen den Storage unterhalb vo Kubernetes zu Verfügung
+* Bei Containern gibt es zwei Sichtweisen - Wir stellen den Storage unterhalb vo Kubernetes zu Verfügung
 oder wir lassen den Ceph cluster in Kubernetes laufen
-Besonders bei Gateways z.B. die einfach überall laufen können, kann sich einfach Kubernetes darum kümmern und schauen
+* Besonders bei Gateways z.B. die einfach überall laufen können, kann sich einfach Kubernetes darum kümmern und schauen
 wo es am Besten gerade passt
 
 --
@@ -504,13 +504,13 @@ wo es am Besten gerade passt
 
 --
 
-#### Cephalocon Barcelona
+#### Cephalocon Barcelona 2019
 
-* Cephalocon Barcelona 2019
- * May 19-20, 2019
- * Barcelona, Spain
- * Similar format: 2 days, 4 tracks
+* May 19-20, 2019
+* Barcelona, Spain
+* Similar format: 2 days, 4 tracks
 * Co-located with KubeCon + CloudNativeCon
  * May 20-23, 2018
 * https://ceph.com/cephalocon/
 
+<img src="images/cephalocon-barcelona.png" width="35%" style="background:none; border:none; box-shadow:none;">
