@@ -379,7 +379,7 @@ rbd perf image iotop
  * Private view of images, etc.
 * Pool-level config overrides
  * Simpler configuration
-* Creation, access, modification timestamps
+* "rbd ls" - Creation, access, modification timestamps
 
 Note:
 * rbd-mirror is the Daemon that is used for the asynchronous replication - was added with Luminous
@@ -472,8 +472,7 @@ Note:
  * Persistent Volumes (RWO and RWX)
  * Coming: dynamic provisioning of RGW users and buckets
 * Enthusiastic user community, CNCF incubation project
-* Working hard toward v1.0 release
- * Focus on ability to support in production environments
+* Version v1.0 was released three weeks ago
 
 --
 
