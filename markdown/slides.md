@@ -1,12 +1,12 @@
 <div><img alt="ceph logo" width="35%" src="images/ceph-logo.png" style="background:none; border:none; box-shadow:none;"></div>
 
 <hr>
-Was ist neu in Nautilus und was kommt als Nächstes? 
+State of Ceph 
 </hr>
 
 <hr>
 <p>Kai Wagner | <a href="mailto:kwagner@suse.com">kwagner@suse.com</a></p>
-<p>Chemnitzer Linuxtage 2019
+<p>openSUSE Conference 2019
 
 </p>
 
@@ -29,22 +29,10 @@ Was ist neu in Nautilus und was kommt als Nächstes?
 
 --
 
-### Who am I?
-
-```
-[capri] (capri@fulda.de): Kai Wagner
-[capri] #ceph #ceph-dashboard #opensuse #suse #storage 
-[capri] capri.suse.de :SUSE Employee 
-[capri] idle 256189:02:41, signon: Thu Jan 26th,1989 23:26
-[capri] End of WHOIS list.
-```
-
---
-
 <img src="images/ceph_stack.png" style="background:none; border:none; box-shadow:none;">
 
 Note:
-* Ceph ist eine Unified Storage Plattform welche Objekt, Block und Filestorage zur Verfügung stellen kann
+* Ceph is a unified storage solution which provides block, file and object storage
 
 --
 
@@ -53,32 +41,34 @@ Note:
 <img src="images/release-schedule.png" style="background:none; border:none; box-shadow:none;">
 
 * Stable, named release every 9 months
-* Backports for 2 releases
+* Backport for 2 releases
 * Upgrade up to 2 releases at a time
  * e.g Luminous -> Nautilus, Mimic -> Octopus
 
+Survey - http://tiny.cc/ceph-release
+
 Note:
-* Aktuelle Release Zyklus ist 9 Monate.
-* Es wird dabei ein n-2 n+2 Upgrade unterstützt
-* Maximum von 18 Monaten aktuell möglich bevor ein Upgrade ansteht
+* Current release cycle is every 9 Month
+* Upgrade support n+2
+* Max support between releases limited to 18 month
 
 --
 
-#### Ceph Priorities
+## Ceph Themes
 
-* Usability and management
-
-* Container ecosystem
-
+* Usability
+* Quality
 * Performance
-
-* Multi- and hyprid cloud
+* Multi-site
+* Ecosystem
 
 Note:
-* Upstream hat 4 Leitelemente aktuell:
-* Usability and management - Ceph hat immer den Beigeschmack sehr schwierig zu benutzen zu sein, von der Installation über das Mangement
-* Container Ecosystem - kubernetes, csi
-* Performance - Jeder will All-flash und NVMe und somit muss auch Ceph nachziehen. Aktuell gibt ein ein Projekt Names "crimson" was den OSD stack neu definiert für diesen Fall
+* We have five principals we're focusing on upstream atm
+* Usability - Ceph still is quite complex and the principal here is to make it easier to consume - orchestrator API, upgrade automation
+* Quality - Telemetry and Crash reports, Doc and Test suite
+* Performance - All-flash wanted but the current OSD stack was developed against spinners - new project called CRIMSON will target this gap
+* Multi-site -  RGW S3 management, tiering, sync to clouds etc
+* Ecosystem - Kubernetes + Rook, OpenStack integration, Analytics 
 
 
 ---
@@ -92,9 +82,8 @@ Note:
 <img src="images/ceph-dashboard.png" style="background:none; border:none; box-shadow:none;">
 
 Note:
-* Größte Neuigkeit in diesem Bereich ist das Ceph Dashboard
-* Erste read-only Implementierung mit Luminous
-* Jetzt dank dem openATTIC team und Projekt haben wir endlich eine nutzbare und hilfreiche UI
+* First read-only version was released with Luminous
+* Thanks to the openATTIC team we now have the first version of a usable dashboard whith added value for the user
 
 --
 
@@ -147,11 +136,10 @@ Note:
 <img src="images/orchestrator-sandwich.png" style="background:none; border:none; box-shadow:none;">
 
 Note:
-* Orchestrator Abstraktion
-* Die Idee dahinter ist einen Orchestrator Layer zu haben der egal welches Tool Ceph nutzen will dies vereinheitlich und vereinfacht
-* Aktuell wird an rook, ansible, DeepSea und ssh gearbeitet.
-* Ceph spricht mit dem Orchestrator egal wer diese Anfrage einkippt und kümmert sich um die Ausführung
-* Das ist die Grundlage für eine einheitliche ceph-cli
+* Orchestrator abstraction
+* the idea behind is to have an abstraction layer that can be used by any other mgr plugin so we have a unified way of handling it
+* currently rook, ansible, DeepSea (salt) and ssh
+* That's the baseline for a unified ceph-cli
 
 --
 
@@ -169,7 +157,7 @@ Note:
 * WIP - Enable dashboard GUI for deploying and managing daemons
 
 Note:
-* Wir sind sehr froh das wir endlich soweit sind und somit auch nur noch wenige Schritte davon entfernt endlich einen kompletten Cluster im Dashboard managen zu können.
+* We're super excited about that and we're only a few steps away to manage services in the dashboard as well
 
 --
 
@@ -181,15 +169,14 @@ Note:
 * Nautilus: pg_num can be reduced
 * Nautilus: pg_num can be automagically tuned in the background
  * Based on usage (how much data in each pool)
- * Administrator can optionally hint about future/expected usage
  * Ceph can either issue health warning or initiate changes itself
 
 Note:
-* Eines der großen RADOS features in Nautilus
-* Leute waren immer verwirrt und keiner wusste genau wie er die PGs definieren sollte
-* Es war immer möglich die pg_num zu erhöhen, aber nicht zu verringern - fixed in Nautilus
-* PGs können automatisch im Hintergrund anpassen - Es schaut sich den Cluster und die Daten an und passt das die pg_num an
-* Es kann informieren oder es selbst machen, kann gewählt werden - wenn unterschied von soll zu sein >3 ist
+* One of the biggest RADOS features in Nautilus
+* PG calculation and the selection of it was always black magic
+* PGs could be increased but never decreased
+* Nautilus could do this for you now
+* Could display just a warning or it could modify the pg_num on it's own if the PG num differes by *3
 
 --
 
@@ -204,10 +191,8 @@ Note:
  * Automatically mark soon-to-fail OSDs “out”
 
 Note:
-* Es wird unterhalb allem geschaut, hinter Partition und LVM etc - direkt die Seriennummer und der Typ
-* Diese Infos werden vom ceph-mgr verwaltet
-* Es gibt neue Fuktionalität in den OSDs die diese Health daten in RADOS Objects speichern
-* Zusammen mit der blinking LEDs Funktionalität können Disks getauscht werden
+* We are now getting smart data from the devices itself
+* Together with the blinky lights functionality we're getting a step closer to enterprise grade
 
 --
 
@@ -237,10 +222,8 @@ Samsung_SSD_850_EVO_1TB_S2RENX0J500066T cpach:sdb     mon.cpach  >5w
 * If user opts in, telemetry module can phone home crashes to Ceph devs
 
 Note:
-* Vorher einfach einen crash report geschrieben ohne das es jemand mitbekommen hat - Daemon restart fertig
-* report /var/lib/ceph/crash process id, timestamp and a stacktrace
-* Es gibt eine Telemetry Module - muss aktiviert werden - kann Basis Infos Upstream schicken - how many OSDs, which version etc
-* Telemetry kann diese crash reports direkt mit übermitteln damit die devs davon lernen können
+* Previously logs were stored locally and the service just restarted so no one was aware of a crash
+* Telemetry module only stores same basic information - not a security issue and no data will be leaked
 
 ---
 
@@ -263,9 +246,8 @@ Note:
  * Kernel support for v2 will come later
 
 Note:
-* Kompletter Traffic zwischen allen Daemons in Ceph kann verschlüsselt werden
-* Aktuell kann man nur IPv4 oder IPv6 nutzen, damit geht nun Dual Stack
-
+* The traffic between the daemons in Ceph can now be encrypted
+* Currently only IPv4 or IPv6 but not both - WIP
 
 --
 
@@ -285,11 +267,11 @@ Note:
 * ‘Misplaced’ is no longer HEALTH_WARN
 
 Note:
-* Es war schwierig zu sagen wie viel RAM ein OSD wirklich nutzen wird - Ich will das meine OSD 3GB RAM max nutzt und Ceph passt alles andere selbst an
-* Es können OSD jetzt an bestimmte NUMA nodes gebunden werden
-* Anstelle von der ceph.conf auf tausenden nodes befindet sich die Config jetzt direkt nur noch auf den Monitoren
-* For long running Tasks gibt es jetzt ein "ceph progress" was eine Fortschrittsanzeige für solche Vorgänge anzeigt
-* Misplaced data but not degraded führt jetzt nicht mehr zu Health_Warn - kann geändert werden aber so kann man weiterschlafen
+* It wasn't easy to say how much memory will be used by an OSD
+* NUMA pinning of OSD nodes
+* ceph.conf is now stored on the mons and only there
+* progress command for long running tasks
+* Misplaced is no longer a HEALTH_WARN but can be changed if you want it to be
 
 --
 
@@ -308,7 +290,7 @@ Note:
 
 Note:
 
-* Problem war häufig die Cache Größen der RocksDB etc - In Nautilus kümmert sich Ceph da nun selber drum
+* Again, it's predictable how much memory will be used
 
 --
 
@@ -322,10 +304,9 @@ Note:
  * Better recovery efficiency when less m nodes fail (for a k+m code)
 
 Note:
-* Die neuen Device Klassen mit HDD und SSD mit denen man einfach Crush Regeln schreiben kann die nur auf einen bestimmten Disk Typ abzielen
-können nun on the fly migriert werden - Before it was manual work
-* In einigen Cases kann es dazu führen das eine OSD unbestimmt viel RAM frisst
-* Clay sorgt dafür das ein optimaleres Verhältnis zwischen Bandwith und IO
+* New devices classes with SSD/HDD can noe be used without the need to reshuffel the whole data
+* Some corner cases this resulted in running out of memory
+* Clay gives you a better usage between bandwith and IO during a recovery operation
 
 ---
 
@@ -348,11 +329,11 @@ können nun on the fly migriert werden - Before it was manual work
  * Better performance, efficiency and scaliblity 
 
 Note:
-* Es können Zones erstellt werden die bei bestimmten Events Meldung geben - Es wird ein Eventstream erzeugt aus dem man die Daten lesen kann (polling interface um an Daten zu kommen)
-* Ein PUT kann eine Function as a service auslösen - nette Sache :) 
-* Archive zone mit Object versioning - full copy of your data but versionized
-* S3 API die es möglich macht Tiering zu implementieren - in einem Cluster across different pools
-* Früher Apache und civetweb und nun mit Nautilus nutzen wir Beast als Webfrontend
+* You can create zones where you could notify or listen on specific events - it creates an evenstream you could subscribe to
+* A specific PUT could for example trigger some function as a service
+* Archival zone - full copy of your data but versionized
+* S3 API which allows to create tiering across different pools
+* New frontend - before apache, civetweb and now Beast
 
 ---
 
@@ -365,7 +346,7 @@ Note:
 <img src="images/rbd-live-migration.png" style="background:none; border:none; box-shadow:none;">
 
 Note:
-* Man konnte immer schon verschiedene Pools mit unterschiedlicher Performance haben und war dann gebunden wo man das RBD erstellt hatte
+* Before you were bound to the pool you created the RBD in - now you can move it between different pools
 
 --
 
@@ -401,10 +382,10 @@ rbd perf image iotop
 * Creation, access, modification timestamps
 
 Note:
-* rbd-mirror ist der Deamon der die asynchronce Replikation übernimmt - gibt es seit Luminous
-* In einem Pool kann man Security Domains machen und dann clients zu einem bestimmten Bereich locken
-* Es war möglich schon caching z.B. auf bestimmten RBDs zu aktivieren aber nun kann das auch direkt auf dem Pool gemacht werden und durch eine einheitliche CLI
-* "rbd ls" hat nun auch timestamps somit sieht man auch wer und wann dieses image nutzt
+* rbd-mirror is the Daemon that is used for the asynchronous replication - was added with Luminous
+* You can create security domains within a pool to lock specific clients into it
+* Before you were able to active rbd caching but not it's also possible to do it on a pool basis
+* "rbd ls" now adds timestamps and some more details to it's output
 
 ---
 
@@ -422,8 +403,8 @@ Note:
 * ‘ceph fs volume …’, ‘ceph fs subvolume …’
 
 Note:
-* Multi-fs ist jetzt stable - D.h es können multiple CephFS filesystems in einem Ceph Cluster erstellt werden
-* Der Teil wurde aus dem OpenStack Manila driver jetzt direkt in den ceph-mgr übernommen. Alle nutzen jetzt die gleiche Abstraktion hier - cli und dashboard
+* Multi-fs is now declared stable. You can create multiple CephFS filesystems within your Ceph cluster
+* Subvolume concept was copied from the OpenStack Manila driver and added to the ceph-mgr
 
 -- 
 
@@ -440,8 +421,7 @@ Note:
 * Mapped to new volume/subvolume concept
 
 Note:
-* Jeff Layton hat es so umgebaut das es jetzt ein Object in Rados gibt was alle diese Informationen hält 
-* NFS Gateways storen ihre configs nun auch in einem Rados Object etc
+* Jeff Layton developed the change that we can now store the config withing a rados object
 
 --
 
@@ -456,8 +436,8 @@ Note:
  * MDS balancing improvements for multi-MDS clusters
 
 Note:
-* Ein outreachy project hat uns die cephfs shell gebracht für Skripting für CephFS
-* Zuvor musste man für Quota z.B. erst CephFS mounten und dann das Attribute setzen, dass geht nun via CLI
+* Was developed within an outreachy project - mostly used for scripting and CephFS
+* Before you had to mount a CephFS to set quota attributes for example - that is no longer necessary and can be done by the cli
 
 ---
 
@@ -476,10 +456,8 @@ Note:
 * Kubernetes as “distributed OS”
 
 Note:
-* Bei Containern gibt es zwei Sichtweisen - Wir stellen den Storage unterhalb vo Kubernetes zu Verfügung
-oder wir lassen den Ceph cluster in Kubernetes laufen
-* Besonders bei Gateways z.B. die einfach überall laufen können, kann sich einfach Kubernetes darum kümmern und schauen
-wo es am Besten gerade passt
+* We have two different views - we provide the storage underneath K8s or we move our services into k8s
+* Specially the gateways would benefit of k8s cause those could be spawned and created on demand
 
 --
 
@@ -535,33 +513,22 @@ wo es am Besten gerade passt
 
 --
 
-#### Cephalocon Beijing
+#### Ceph Days
 
-* Inaugural Cephalocon APAC took place in March 2018
- * Beijing, China
- * 2 days, 4 tracks, 1000 attendees
- * Users, vendors, partners, developers
-* 14 industry sponsors
+* Ceph Day Netherlands - Amsterdam - Jul 2
+ * CFP open until early June
+* Ceph Day CERN - Geneva - September 16
+ * Will be finalized soon
+* Ceph Day London - October 24
+* Ceph Day Poland - Wrocław - October 28
+* Propose your own! Contact us at events@ceph.io
 
-<img src="images/cephalocon-beijing.png" style="background:none; border:none; box-shadow:none;">
-
---
-
-#### Cephalocon Barcelona 2019
-
-* May 19-20, 2019
-* Barcelona, Spain
-* Similar format: 2 days, 4 tracks
-* Co-located with KubeCon + CloudNativeCon
- * May 20-23, 2018
-* https://ceph.com/cephalocon/
-
-<img src="images/cephalocon-barcelona.png" width="35%" style="background:none; border:none; box-shadow:none;">
+https://ceph.com/cephdays
 
 ---
 
 # Links
 
-* https://capri1989.github.io/clt2019/
+* https://capri1989.github.io/oSC19/
 * https://github.com/ceph/ceph/
 * https://github.com/ceph/ceph/blob/master/doc/releases/nautilus.rst
