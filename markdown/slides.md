@@ -154,21 +154,61 @@ Ceph trades everything off for consistency
 
 ## What is Rook?
 
+<img src="images/rook-logo.png" style="background:none; border:5px; box-shadow:none;">
+
 --
 
-* Operator for running Storage in Kubernetes
+#### Operator for running Storage in Kubernetes
+
  * Extends Kubernetes with custom types
- * Automation for Deployment, Scaling, Upgrading, etc for the Storage.
 * Framework for many storage providers / solutions
- * Common Types for, e.g., Storage Selection shared
 * Open Source (Apache 2.0)
 * Hosted by CNCF
+
+--
+
+Rook turns distributed storage systems into:
+
+* Self-manageable
+* Self-scalable
+* Self-healable storage services
+
+--
+
+...it also automates the tasks of a storage administrator:
+
+* Deployment
+* Bootstraping
+* Configuration
+* Provisioning
+* Scaling/Upgrading/Migration ...
+
+--
+
+### Concepts of Rook
+
+* Operator
+ * Bootstrap and monitor the storage cluster
+ * Starts and monitors Ceph monitor pods and a daemonset for OSDs
+ * Manages CRDs for pools, object stores (S3/Swift) and file systems
+ * Creates the Rook agents
+
+--
+
+* Agent
+ * Deployed on every Kubernetes node
+ * Configures the Flexvolume plugin
+ * Handles all storage operations required on the nodes 
 
 --
 
 ### Architecture
 
 <img src="images/rook-architecture.png" style="background:none; border:none; box-shadow:none;">
+
+--
+
+<img src="images/rook-architecture02.png" style="background:none; border:none; box-shadow:none;">
 
 ---
 
