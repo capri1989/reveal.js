@@ -9,30 +9,11 @@
 
 ### Content for today
 
-* Introduction
 * What is Ceph?
 * What is Rook?
  * Architecture 
-* Kubernetes storage integration
- * Native
- * CSI is the future!
+* CSI is the future!
 * Demo
-
----
-
-## Introduction
-
---
-
-### Who are we?
-
-```
-[capri] (capri@fulda.de): Kai Wagner
-[capri] #ceph #ceph-dashboard #opensuse #suse #storage 
-[capri] capri.suse.de :SUSE Employee 
-[capri] idle 256189:02:41, signon: Thu Jan 26th,1989 23:26
-[capri] End of WHOIS list.
-```
 
 ---
 
@@ -78,73 +59,7 @@ Ceph trades everything off for consistency
 
 --
 
-### Ceph core compontens
-
---
-
-### MON
-
-* Tracks & Monitor the health of the cluster
-
-* Maintains a master copy of the cluster map
-
-* Consensus for distributed decision making
-
-* MONs DO NOT serve data to clients
-
---
-
-### OSD
-
-* Object Storage Deamon
-
-* Store the actual data as objects on physical disks
-
-* Serve stored data to clients
-
-* Replication mechanism included
-
-* Minimum of 3 OSDs recommended for data replication
-
---
-
-### Pools
-
-* Logical container for storage objects
-
-* Replicated or erasure coding
-
-* Dedicated CRUSH rules
-
---
-
-### Placement groups
-
-* Helper to balance the data across the OSDs
-
-* One PG typically spans several OSDs
-
-* One OSD typically serves many PGs
-
-* Recommended ~150 PGs per OSD
-
---
-
-### CRUSH map 
-
-* Controlled Replication Under Scalable Hashing
-
-* MONs maintain the CRUSH map
-
-* Topology of any environment could be build (row,rack,host,az...)
-
---
-
-### That sounds to complicated
-
---
-
-### Isn't there a Web-UI?
+If this sounds too complicated, there's something for you!
 
 --
 
@@ -212,15 +127,16 @@ Rook turns distributed storage systems into:
 
 ---
 
-## Kubernetes storage integration
-
---
-
-### Native
-
---
-
 ### CSI is the future!
+
+* Container storage interface
+* Successor of flexvolume
+
+Note: 
+
+* Out of the tree module in kubernetes - you can modify and release it without a need to do a k8s release
+* Flexvolume had to run on the hosts directly and with root rights and you needed all the binaries
+* CSI is the onle supported and active mainted module atm - flexvolume won't get any new features
 
 ---
 
