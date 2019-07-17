@@ -75,10 +75,18 @@ If this sounds too complicated, there's something for you!
 
 #### Operator for running Storage in Kubernetes
 
- * Extends Kubernetes with custom types
 * Framework for many storage providers / solutions
 * Open Source (Apache 2.0)
 * Hosted by CNCF
+
+Note:
+
+* Rook is a framework to run storage backends such like Ceph/Cassandra
+ * Cassandra is a distributed database management system 
+ * Generally Rook provides persistant storage
+* Running the whole components in containers we can simply go ahead and update/change or spawn new ones if we want
+* We utulize what K8s gives us - so we're talking to the K8s API
+* Hosted by the Cloud Native Computing Foundation
 
 --
 
@@ -121,6 +129,15 @@ Rook turns distributed storage systems into:
 
 <img src="images/rook-architecture.png" style="background:none; border:none; box-shadow:none;">
 
+Note:
+
+* kubectl - Simply allows you to interact with the K8s API
+* Nodes running kublet which is our node component
+* Long term goal is to only spawn mons/mgr and spawning the rest will/can be done within the Ceph Dashboard
+* Rook discover is a pod that discovers the disk in the machines
+* Operator can based on the information from the discover pod create the OSDs
+* Rook Agent is the FlexVolume driver atm and will be the CSI component
+
 --
 
 <img src="images/rook-architecture02.png" style="background:none; border:none; box-shadow:none;">
@@ -130,13 +147,16 @@ Rook turns distributed storage systems into:
 ### CSI is the future!
 
 * Container storage interface
-* Successor of flexvolume
+* Successor of FlexVolume
 
 Note: 
 
+* CSI is an interface/API and one way to request storage - K8s talks to this CSI driver and CSI takes care that the storage is
+provided to your applications- nevertheless if it's Ceph, rusted NetApp or NFS
+* It's not only limited to K8s, could be used for things outside of K8s as well
 * Out of the tree module in kubernetes - you can modify and release it without a need to do a k8s release
 * Flexvolume had to run on the hosts directly and with root rights and you needed all the binaries
-* CSI is the onle supported and active mainted module atm - flexvolume won't get any new features
+* CSI becomes the defacto standard module for storage atm - flexvolume won't get any new features
 
 ---
 
