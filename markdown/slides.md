@@ -158,6 +158,11 @@ provided to your applications- nevertheless if it's Ceph, rusted NetApp or NFS
 * Flexvolume had to run on the hosts directly and with root rights and you needed all the binaries
 * CSI becomes the defacto standard module for storage atm - flexvolume won't get any new features
 
+--
+### Architecture
+
+<img src="images/container-storage-interface_diagram1.png" style="background:none; border:none; box-shadow:none;">
+
 ---
 
 ## Demo
