@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/white.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
@@ -25,11 +25,52 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+   			    <section id="qrcode" data-menu-title="QR code">
+                                <div class="qrcode" id="qrcode-talk"></div>
+                                <p><a href="https://capri1989.github.io/osc-2020/" target="_blank"
+                                      id="talk">https://capri1989.github.io/osc-2020/</a></p>
+                	    </section>
+			    <section 
+                        	data-markdown="markdown/slides.md"
+                        	data-separator="^\n---"  
+                        	data-separator-vertical="^\n--"  
+                        	data-notes="^Note:"  
+                        	data-charset="utf-8"> 
+			    </section>
+			    <section data-transition="zoom">
+			   	<h1>The End</h1>
+				<h2>Questions?</h2>
+			    </section>
+			</div>	
 		</div>
+	<script src="qrcodejs/qrcode.js"></script>
+	<script src="qrcodejs/qrcode.js"></script>
+        <script>
+	    /* Grab all links and iterate over them */
+	    var sources = document.getElementsByTagName('a');
+	    n = sources.length;
+	    for (var i = 0; i < n; i++) {
+	        var source = sources[i];
+	        var href = source.href;
 
+	        /* If the link has no href attribute, skip it */
+	        if (href) {
+	            var target_id = "qrcode-" + source.id ;
+	            var target = document.getElementById(target_id);
+	            /* If the source has no corresponding target element, skip
+	             * it */
+	            if (target) {
+	                var qr = new QRCode(target, {
+	                    width : 400,
+	                    height : 400,
+	                    colorDark : "#000000",
+	                    colorLight : "rgba(255,255,255,0)",
+	                });
+	                qr.makeCode(href);
+	            }
+	        }
+	    }
+        </script>
 		<script src="js/reveal.js"></script>
 
 		<script>
